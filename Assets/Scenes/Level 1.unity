@@ -371,13 +371,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815234068}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.07526649, y: 0.8584418, z: 0.02210805, w: 0.50687647}
+  m_LocalRotation: {x: -0.04644134, y: 0.8614128, z: -0.027228454, w: 0.5050444}
   m_LocalPosition: {x: -0.04, y: 0.51, z: -0.01}
   m_LocalScale: {x: 1.2, y: 1.8, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 649556264}
-  m_LocalEulerAnglesHint: {x: -6.561, y: 119.234, z: -6.172}
+  m_LocalEulerAnglesHint: {x: 0, y: 119.234, z: -6.172}
 --- !u!136 &815234070
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -397,8 +397,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.8
+  m_Height: 3
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &815234071
@@ -554,6 +554,7 @@ GameObject:
   - component: {fileID: 1360825965}
   - component: {fileID: 1360825964}
   - component: {fileID: 1360825963}
+  - component: {fileID: 1360825966}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -576,7 +577,7 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: 651bc1ac47f0c40778797a6bb23a85fd, type: 2}
@@ -636,6 +637,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1360825966
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360825962}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
