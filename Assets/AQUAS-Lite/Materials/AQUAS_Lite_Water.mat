@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTexture:
-        m_Texture: {fileID: 2800000, guid: 0d05b23ea2d999b47825c6c522e25adc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6cb123095ca4b4e4680773312ba1c076, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -105,8 +105,8 @@ Material:
     - _MediumTilingDistance: 100
     - _Metallic: 0
     - _Mode: 0
-    - _NormalStrength: 2
-    - _NormalTiling: 0.54
+    - _NormalStrength: 0.79
+    - _NormalTiling: 0.15
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _ProbeReflectionIntensity: 0.578
@@ -129,7 +129,7 @@ Material:
     - __dirty: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DeepWaterColor: {r: 0.067803465, g: 0.335849, b: 0.3277032, a: 1}
+    - _DeepWaterColor: {r: 0.027675252, g: 0.6377357, b: 0.6200528, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _FogColor: {r: 1, g: 1, b: 1, a: 1}
