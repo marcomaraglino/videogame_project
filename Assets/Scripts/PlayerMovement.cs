@@ -9,30 +9,33 @@ namespace Assets.Scripts
         public CharacterController controller;
 
         public float speed = 12f;
-        public float swimSpeed = 6f; // Velocità ridotta per il nuoto
         public float gravity = -9.81f * 2;
-        public float waterGravity = -2f; // Gravità ridotta in acqua
+        public float waterGravity = -4.0f; // Gravità mentre si è in acqua
         public float jumpHeight = 3f;
+
+        public float swimSpeed = 6f; // Velocità di nuoto
+        public float diveSpeed = 4f; // Velocità di tuffo
+        public float swimRiseSpeed = 2f; // Velocità di risalita
+        public LayerMask waterMask; // Maschera per rilevare l'acqua
 
         public Transform groundCheck;
         public float groundDistance = 0.4f;
         public LayerMask groundMask;
-        public LayerMask waterMask; // Maschera per rilevare l'acqua
-
-        public Transform waterSurface; // Punto che indica la superficie dell'acqua
-        public float maxSwimHeight = 0.5f; // Altezza massima sopra la superficie dell'acqua
 
         Vector3 velocity;
+
         bool isGrounded;
         bool isInWater;
 
         // Update is called once per frame
         void Update()
         {
-            // Controllo se il giocatore è a terra o in acqua
+            // Controlla se il giocatore è a terra
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            // Controlla se il giocatore è in acqua
             isInWater = Physics.CheckSphere(groundCheck.position, groundDistance, waterMask);
 
+            // Reset della velocità di caduta se il giocatore è a terra
             if (isGrounded && velocity.y < 0)
             {
                 velocity.y = -2f;
@@ -41,35 +44,11 @@ namespace Assets.Scripts
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
+            // Movimento del giocatore
             Vector3 move = transform.right * x + transform.forward * z;
 
-            if (isInWater)
+            if (!isInWater) // Movimento normale a terra
             {
-                // Movimenti in acqua
-                controller.Move(move * swimSpeed * Time.deltaTime);
-
-                // Limite della risalita in acqua
-                float maxHeight = waterSurface.position.y + maxSwimHeight;
-
-                if (Input.GetButton("Jump") && transform.position.y < maxHeight)
-                {
-                    // Consente di salire solo fino al limite della superficie
-                    velocity.y = swimSpeed * 0.5f; // Risalita controllata
-                }
-                else if (transform.position.y >= maxHeight)
-                {
-                    // Se il giocatore è troppo in alto, lo manteniamo alla superficie
-                    velocity.y = Mathf.Min(velocity.y, 0);
-                }
-                else
-                {
-                    // Applicazione della gravità in acqua
-                    velocity.y += waterGravity * Time.deltaTime;
-                }
-            }
-            else
-            {
-                // Movimenti a terra o in aria
                 controller.Move(move * speed * Time.deltaTime);
 
                 // Salto se il giocatore è a terra
@@ -77,10 +56,30 @@ namespace Assets.Scripts
                 {
                     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
                 }
+            }
+            else // Movimento in acqua
+            {
+                controller.Move(move * swimSpeed * Time.deltaTime);
 
+                // Risalita mentre si tiene premuto il tasto di salto
+                if (Input.GetButton("Jump"))
+                {
+                    velocity.y = swimRiseSpeed; // Risalita controllata
+                }
+                else
+                {
+                    // Applicazione della gravità in acqua
+                    velocity.y += waterGravity * Time.deltaTime; 
+                }
+            }
+
+            // Applicazione della gravità normale se non in acqua
+            if (!isInWater)
+            {
                 velocity.y += gravity * Time.deltaTime;
             }
 
+            // Muovi il giocatore
             controller.Move(velocity * Time.deltaTime);
         }
     }
