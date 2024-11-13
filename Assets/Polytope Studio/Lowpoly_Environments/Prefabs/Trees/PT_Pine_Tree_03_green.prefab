@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 2028470415565354925}
   - component: {fileID: 2812287724108380338}
   - component: {fileID: 1394057832663195253}
-  - component: {fileID: 1452019031852728179}
-  - component: {fileID: 2645848221650219793}
   m_Layer: 0
   m_Name: PT_Pine_Tree_03_green_LOD0
   m_TagString: Untagged
@@ -86,42 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1452019031852728179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649165938051307759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae792ecd6e1384d62822dcd2a0def602, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 
---- !u!136 &2645848221650219793
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649165938051307759}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Height: 9.165267
-  m_Direction: 1
-  m_Center: {x: -0.030776441, y: 4.058229, z: 0.0074507594}
 --- !u!1 &1720328307436147672
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +178,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6894979521318456901}
   - component: {fileID: 1870679391148259636}
-  - component: {fileID: 8364906412905346504}
+  - component: {fileID: 6654754570154149813}
+  - component: {fileID: 5901084092854971558}
   m_Layer: 0
   m_Name: PT_Pine_Tree_03_green
   m_TagString: Untagged
@@ -269,8 +232,8 @@ LODGroup:
     renderers:
     - renderer: {fileID: 7013654394060798706}
   m_Enabled: 1
---- !u!136 &8364906412905346504
-CapsuleCollider:
+--- !u!64 &6654754570154149813
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -287,11 +250,23 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1370226064674271009, guid: c2dcabc4d03cc9b4098225e59529d20d, type: 3}
+--- !u!114 &5901084092854971558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117071349010126079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae792ecd6e1384d62822dcd2a0def602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Pine Tree
 --- !u!1 &8169898343365794049
 GameObject:
   m_ObjectHideFlags: 0
