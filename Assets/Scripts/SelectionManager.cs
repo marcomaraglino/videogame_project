@@ -26,8 +26,8 @@ public class SelectionManager : MonoBehaviour
  
             if (selectionTransform.GetComponent<InteractableObject>())
             {
-                Debug.Log(selectionTransform.GetComponent<InteractableObject>().GetItemName());
                 interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
+                selectionTransform.GetComponent<InteractableObject>().IfPickedUp();
                 interaction_Info_UI.SetActive(true);
             }
             else 
@@ -35,6 +35,8 @@ public class SelectionManager : MonoBehaviour
                 interaction_Info_UI.SetActive(false);
             }
  
+        } else {
+            interaction_Info_UI.SetActive(false);
         }
     }
 }
