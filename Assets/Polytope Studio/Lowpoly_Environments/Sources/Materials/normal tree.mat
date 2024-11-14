@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PT_Pine_Tree_Leaves_Mat
+  m_Name: normal tree
   m_Shader: {fileID: 4800000, guid: 77e1a76a38ecd5a46a270afb12894dd5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -122,5 +122,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 0.010346207, g: 0.07075471, b: 0.040550455, a: 1}
-    - _TopColor: {r: 0.10592382, g: 0.3283019, b: 0.13144264, a: 1}
+    - _TopColor: {r: 0, g: 0.125, b: 0.015350878, a: 1}
   m_BuildTextureStacks: []
