@@ -22,6 +22,8 @@ namespace Assets.Scripts
         public float groundDistance = 0.4f;
         public LayerMask groundMask;
 
+        public WaterPhysics waterPhysics; // Riferimento a WaterPhysics
+
         Vector3 velocity;
 
         bool isGrounded;
@@ -33,7 +35,7 @@ namespace Assets.Scripts
             // Controlla se il giocatore è a terra
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
             // Controlla se il giocatore è in acqua
-            isInWater = Physics.CheckSphere(groundCheck.position, groundDistance, waterMask);
+            isInWater = waterPhysics != null && waterPhysics.isUnderwater; // Aggiorna il valore di isInWater
 
             // Reset della velocità di caduta se il giocatore è a terra
             if (isGrounded && velocity.y < 0)
@@ -49,6 +51,7 @@ namespace Assets.Scripts
 
             if (!isInWater) // Movimento normale a terra
             {
+                
                 controller.Move(move * speed * Time.deltaTime);
 
                 // Salto se il giocatore è a terra
@@ -59,6 +62,7 @@ namespace Assets.Scripts
             }
             else // Movimento in acqua
             {
+                Debug.Log("Sei in acqua");
                 controller.Move(move * swimSpeed * Time.deltaTime);
 
                 // Risalita mentre si tiene premuto il tasto di salto
