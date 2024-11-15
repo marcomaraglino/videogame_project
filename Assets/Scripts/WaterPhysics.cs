@@ -4,10 +4,11 @@ public class WaterPhysics : MonoBehaviour
 {
     public float waterDrag = 3f;            // Resistenza dell'acqua (drag)
     public float waterAngularDrag = 2f;     // Resistenza angolare dell'acqua
-    public float buoyancyForce = 10f;       // Forza di galleggiamento
+    public float buoyancyForce = 10f; 
+    
+    public bool isUnderwater = false;      // Forza di galleggiamento
 
     private Rigidbody playerRigidbody;
-    private bool isUnderwater = false;
     private float originalDrag;
     private float originalAngularDrag;
 
@@ -45,6 +46,7 @@ public class WaterPhysics : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Quando il giocatore esce dall'acqua
         {
+            Debug.Log("Uscito dall'acqua");
             isUnderwater = false;
             if (playerRigidbody != null)
             {
