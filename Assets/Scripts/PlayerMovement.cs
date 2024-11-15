@@ -45,9 +45,12 @@ namespace Assets.Scripts
 
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
+            Vector3 move = new Vector3(0, 0, 0);
 
             // Movimento del giocatore
-            Vector3 move = transform.right * x + transform.forward * z;
+            if (!InventorySystem.Instance.isOpen) {
+                move = transform.right * x + transform.forward * z;
+            }
 
             if (!isInWater) // Movimento normale a terra
             {
@@ -55,7 +58,7 @@ namespace Assets.Scripts
                 controller.Move(move * speed * Time.deltaTime);
 
                 // Salto se il giocatore è a terra
-                if (Input.GetButtonDown("Jump") && isGrounded)
+                if (Input.GetButtonDown("Jump") && isGrounded && !InventorySystem.Instance.isOpen)
                 {
                     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
                 }
@@ -66,7 +69,7 @@ namespace Assets.Scripts
                 controller.Move(move * swimSpeed * Time.deltaTime);
 
                 // Risalita mentre si tiene premuto il tasto di salto
-                if (Input.GetButton("Jump"))
+                if (Input.GetButton("Jump") && !InventorySystem.Instance.isOpen)
                 {
                     velocity.y = swimRiseSpeed; // Risalita controllata
                 }

@@ -14,7 +14,7 @@ public class InteractableObject : MonoBehaviour
 
     public void IfPickedUp() {
         if (Input.GetKeyDown(KeyCode.Mouse0) && isPickable) {
-            Debug.Log("item added in inventory");
+            InventorySystem.Instance.AddToInventory(itemName);
             Destroy(gameObject);
         }
     }
