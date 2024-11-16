@@ -90,11 +90,11 @@ public class InventorySystem : MonoBehaviour
 
     private GameObject FindNextEmptySlot()
     {
-
+        return null;
     }
 
     private bool CheckIfFull()
     {
-        
+        return true;
     }
 }
