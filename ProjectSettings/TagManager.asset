@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tre
   - Slot
+  - Animal
   layers:
   - Default
   - TransparentFX

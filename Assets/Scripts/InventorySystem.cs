@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.iOS;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
  
 public class InventorySystem : MonoBehaviour
 {
@@ -20,6 +22,12 @@ public class InventorySystem : MonoBehaviour
 
     public bool isOpen;
     public bool isFull;
+
+    //Pickup popup
+    public GameObject pickupAlert;
+    public TextMeshProUGUI pickupName;
+    public Image pickupImage;
+    
  
  
     private void Awake()
@@ -71,22 +79,26 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    void TriggerPickupAlert(string itemName, Sprite itemImage) {
+        Debug.Log("Triggering pickup alert for " + itemName);
+        pickupName.text = itemName;
+        pickupImage.sprite = itemImage;
+        pickupAlert.SetActive(true);
+    }
+
     public void AddToInventory(string itemName) {
         if (CheckIfFull()) {
             isFull = true;
-
-
-
             Debug.Log("Inventory full");
         } else {
-
-
             whatSlotToEquip = FindNextEmptySlot();
 
             itemToAdd = Instantiate(Resources.Load<GameObject>(itemName), whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
             itemToAdd.transform.SetParent(whatSlotToEquip.transform);
 
             itemList.Add(itemName);
+
+            TriggerPickupAlert(itemName, itemToAdd.GetComponent<Image>().sprite);
         }
     }
 
