@@ -9,4 +9,22 @@ public class InteractableObject : MonoBehaviour
     {
         return itemName;
     }
+<<<<<<< Updated upstream
+=======
+
+    public void IfPickedUp() {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isPickable) {
+
+            if (!InventorySystem.Instance.isFull) {
+
+
+            InventorySystem.Instance.AddToInventory(itemName);
+            Destroy(gameObject);
+            }
+            else {
+                Debug.Log("Inventory full");
+            }
+        }
+    }
+>>>>>>> Stashed changes
 }

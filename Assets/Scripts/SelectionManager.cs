@@ -9,7 +9,10 @@ public class SelectionManager : MonoBehaviour
 {
  
     public GameObject interaction_Info_UI;
-     TextMeshProUGUI interaction_text;
+    TextMeshProUGUI interaction_text;
+
+    public Image centerDotImage;
+    public Image handIcon;
  
     private void Start()
     {
