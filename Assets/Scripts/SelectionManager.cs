@@ -8,15 +8,14 @@ using TMPro;
 public class SelectionManager : MonoBehaviour
 {
  
-    public GameObject interaction_Info_UI;
-    TextMeshProUGUI interaction_text;
-
-    public Image centerDotImage;
-    public Image handIcon;
- 
+    
+    
+    public GameObject info;
+    
     private void Start()
     {
-        interaction_text = interaction_Info_UI.GetComponent<TextMeshProUGUI>();
+        
+        
     }
  
     void Update()
@@ -29,17 +28,20 @@ public class SelectionManager : MonoBehaviour
  
             if (selectionTransform.GetComponent<InteractableObject>())
             {
-                interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
-                selectionTransform.GetComponent<InteractableObject>().IfPickedUp();
-                interaction_Info_UI.SetActive(true);
+                
+                info.SetActive(true);
+               
             }
             else 
             { 
-                interaction_Info_UI.SetActive(false);
+                
+                info.SetActive(false);
             }
  
         } else {
-            interaction_Info_UI.SetActive(false);
+            
+            info.SetActive(false);
+            
         }
     }
 }
