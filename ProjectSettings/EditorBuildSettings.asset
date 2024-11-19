@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Scene Canvas - Pierfabio.unity
+    guid: 1863b7912d9be9d4fae1cfd0f7b9bf49
+  - enabled: 1
+    path: Assets/Scenes/Scene Canvas.unity
+    guid: dd0fad56d30be4793afa4bd2a677cbd0
   m_configObjects: {}
