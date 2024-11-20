@@ -3,21 +3,17 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-    public string itemName;
     public bool isPickable;
 
-    public string GetItemName()
+    void Update()
     {
-        return itemName;
+        IfPickedUp();
     }
-
     public void IfPickedUp() {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isPickable) {
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isPickable) {
 
             if (!InventorySystem.Instance.isFull) {
 
-
-            InventorySystem.Instance.AddToInventory(itemName);
             Destroy(gameObject);
             }
             else {
