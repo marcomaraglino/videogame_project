@@ -8,50 +8,57 @@ using TMPro;
 public class SelectionManager : MonoBehaviour
 {
  
-    public GameObject interaction_Info_UI;
-    TextMeshProUGUI interaction_text;
-
-    public Image centerDotImage;
-    public Image handIcon;
-
+    
+    
+    public Image hand;
+    public Image pointer;
+    public Vector3 handVelocity;
+    
     private void Start()
     {
-        interaction_text = interaction_Info_UI.GetComponent<TextMeshProUGUI>();
+        pointer.gameObject.SetActive(true);
     }
  
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        
+        
         if (Physics.Raycast(ray, out hit, 10))
         {
             var selectionTransform = hit.transform;
  
             if (selectionTransform.GetComponent<InteractableObject>())
             {
-                interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
-                selectionTransform.GetComponent<InteractableObject>().IfPickedUp();
-                interaction_Info_UI.SetActive(true);
+                hand.gameObject.SetActive(true);
+                pointer.gameObject.SetActive(false);
+
+                Vector3 screenPosition = Camera.main.WorldToScreenPoint(hit.point);
+
+            // Movimento fluido con SmoothDamp
+            hand.rectTransform.position = Vector3.SmoothDamp(
+                hand.rectTransform.position, 
+                screenPosition, 
+                ref handVelocity, 
+                0.1f // Tempo di smorzamento
+            );
+               
             }
             else 
             { 
-                interaction_Info_UI.SetActive(false);
+                hand.gameObject.SetActive(false);
+                pointer.gameObject.SetActive(true);
             }
  
         } else {
-            interaction_Info_UI.SetActive(false);
+            hand.gameObject.SetActive(false);
+            pointer.gameObject.SetActive(true);
+            
         }
+        
     }
-
-    public static SelectionManager Instance { get; private set; }
-
-    public void DisableSelection()
-    {
-
-    }
-
-    public void EnableSelection()
-    {
-
-    }
+    
+     
 }
+
