@@ -60,6 +60,7 @@ namespace Assets.Scripts
                 // Salto se il giocatore è a terra
                 if (Input.GetButtonDown("Jump") && isGrounded && !InventorySystem.Instance.isOpen)
                 {
+                    Debug.Log("Salto");
                     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
                 }
             }
