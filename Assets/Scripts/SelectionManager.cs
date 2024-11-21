@@ -13,7 +13,7 @@ public class SelectionManager : MonoBehaviour
 
     public Image centerDotImage;
     public Image handIcon;
- 
+
     private void Start()
     {
         interaction_text = interaction_Info_UI.GetComponent<TextMeshProUGUI>();
@@ -41,5 +41,17 @@ public class SelectionManager : MonoBehaviour
         } else {
             interaction_Info_UI.SetActive(false);
         }
+    }
+
+    public static SelectionManager Instance { get; private set; }
+
+    public void DisableSelection()
+    {
+
+    }
+
+    public void EnableSelection()
+    {
+
     }
 }
