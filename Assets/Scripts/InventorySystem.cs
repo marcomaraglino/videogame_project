@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
  
 public class InventorySystem : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class InventorySystem : MonoBehaviour
     public TextMeshProUGUI pickupName;
     public Image pickupImage;
     
+    private CanvasGroup alertCanvasGroup;
+    public float fadeDuration = 0.5f;
  
  
     private void Awake()
@@ -47,6 +50,7 @@ public class InventorySystem : MonoBehaviour
         isOpen = false;
 
         PopulateSlotList();
+        alertCanvasGroup = pickupAlert.GetComponent<CanvasGroup>();
     }
 
     private void PopulateSlotList()
@@ -67,11 +71,15 @@ public class InventorySystem : MonoBehaviour
 		    Debug.Log("i is pressed");
             inventoryScreenUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
+            ppVolume.enabled = true;
             isOpen = true;
  
         }
         else if (Input.GetKeyDown(KeyCode.I) && isOpen)
         {
+            PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
+            ppVolume.enabled = false;
             inventoryScreenUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             isOpen = false;
@@ -83,6 +91,24 @@ public class InventorySystem : MonoBehaviour
         pickupName.text = itemName;
         pickupImage.sprite = itemImage;
         pickupAlert.SetActive(true);
+        alertCanvasGroup.alpha = 1;
+        StopAllCoroutines();
+        StartCoroutine(FadeAlert());
+    }
+
+    IEnumerator FadeAlert() {
+        yield return new WaitForSeconds(3f);
+
+        float elapsedTime = 0;
+        while (elapsedTime < fadeDuration) {
+            elapsedTime += Time.deltaTime;
+            float newAlpha = Mathf.Lerp(1, 0, elapsedTime / fadeDuration);
+            alertCanvasGroup.alpha = newAlpha;
+            yield return null;
+        }
+
+        alertCanvasGroup.alpha = 0;
+        pickupAlert.SetActive(false);
     }
 
     public void AddToInventory(string itemName) {
