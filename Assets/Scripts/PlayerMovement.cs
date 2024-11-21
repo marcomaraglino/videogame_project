@@ -21,6 +21,9 @@ namespace Assets.Scripts
         public Transform groundCheck;
         public float groundDistance = 0.4f;
         public LayerMask groundMask;
+        public bool walking;
+
+        public Animator playerAnim;
 
         public WaterPhysics waterPhysics; // Riferimento a WaterPhysics
 
@@ -50,6 +53,14 @@ namespace Assets.Scripts
             // Movimento del giocatore
             if (!InventorySystem.Instance.isOpen) {
                 move = transform.right * x + transform.forward * z;
+                playerAnim.SetTrigger("walk");
+                playerAnim.ResetTrigger("idle");
+                walking = true;
+            } else if (move == Vector3.zero) // Aggiunto per gestire il giocatore fermo
+            {
+                playerAnim.ResetTrigger("walk");
+                playerAnim.SetTrigger("idle");
+                walking = false;
             }
 
             if (!isInWater) // Movimento normale a terra

@@ -10,16 +10,6 @@ public class player : MonoBehaviour
     public bool walking;
     public Transform playerTrans;
     public Rigidbody playerRigid;
-
-
-    void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            playerRigid.velocity = transform.forward * w_speed * Time.deltaTime;
-        }
-        
-    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
