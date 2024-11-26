@@ -7,8 +7,8 @@ public class MenuManager : MonoBehaviour
     public static MenuManager Instance { get; set; }
 
     public GameObject menuCanvas;
-    public GameObject UICanvas;
 
+    public GameObject postProcessVolume;
     public GameObject saveMenu;
     public GameObject settingsMenu;
     public GameObject menu;
@@ -29,10 +29,13 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && !isMenuOpen)
+        if (Input.GetKeyDown(KeyCode.M) && !isMenuOpen)
         {
-            UICanvas.SetActive(false);
             menuCanvas.SetActive(true);
+            postProcessVolume.SetActive(true);
+            menu.SetActive(true);
+
+            Time.timeScale = 0f;
 
             isMenuOpen = true;
 
@@ -42,14 +45,16 @@ public class MenuManager : MonoBehaviour
             SelectionManager.Instance.DisableSelection();
             SelectionManager.Instance.GetComponent<SelectionManager>().enabled = false;
 
-        }else if (Input.GetKeyDown(KeyCode.Z) && isMenuOpen)
+        }else if (Input.GetKeyDown(KeyCode.M) && isMenuOpen)
         {
 
             saveMenu.SetActive(false);
             settingsMenu.SetActive(false);
-            menu.SetActive(true);
+           
+            postProcessVolume.SetActive(false);
 
-            UICanvas.SetActive(true);
+            Time.timeScale = 1f;
+
             menuCanvas.SetActive(false);
 
             isMenuOpen = false;
