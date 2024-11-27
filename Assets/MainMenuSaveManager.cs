@@ -39,6 +39,8 @@ public class MainMenuSaveManager : MonoBehaviour
 
         PlayerPrefs.SetString("Volume", JsonUtility.ToJson(volumeSettings));
         PlayerPrefs.Save();
+
+        print("Saved to Player Pref");
     }
 
     public VolumeSettings LoadVolumeSettings()
