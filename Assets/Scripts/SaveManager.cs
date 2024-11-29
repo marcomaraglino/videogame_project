@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Formatters.Binary;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
@@ -26,10 +27,24 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
     }
+    string jsonPathProject;
+
+    string jsonPathPersistant;
+
+    string binaryPath;
 
     public bool isSavingToJson;
 
+    private void Start()
+    {
+        jsonPathProject = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveGame.json";
+        jsonPathPersistant = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveGame.json";
+        binaryPath = Application.persistentDataPath + "/save_game.bin";
+    }
+
     #region || -------- General Section -------- ||
+
+    #region || -------- Saving -------- ||
 
     public void SaveGame()
     {
@@ -37,7 +52,7 @@ public class SaveManager : MonoBehaviour
 
         data.playerData = GetPlayerData();
 
-        SaveAllGameData(data);
+        SelectSavingType(data);
     }
 
     private PlayerData GetPlayerData()
@@ -47,7 +62,6 @@ public class SaveManager : MonoBehaviour
         playerPosAndRot[0] = PlayerState.Instance.playerBody.transform.position.x;
         playerPosAndRot[1] = PlayerState.Instance.playerBody.transform.position.y;
         playerPosAndRot[2] = PlayerState.Instance.playerBody.transform.position.z;
-
         playerPosAndRot[3] = PlayerState.Instance.playerBody.transform.rotation.x;
         playerPosAndRot[4] = PlayerState.Instance.playerBody.transform.rotation.y;
         playerPosAndRot[5] = PlayerState.Instance.playerBody.transform.rotation.z;
@@ -55,18 +69,80 @@ public class SaveManager : MonoBehaviour
         return new PlayerData(playerPosAndRot);
     }
 
-    public void SaveAllGameData(AllGameData gameData)
+
+    public void SelectSavingType(AllGameData gameData)
     {
         if (isSavingToJson)
         {
-            // SaveGameDataToJsonFile(gameData);
+            SaveGameDataToJsonFile(gameData);
+
         }
         else
         {
             SaveGameDataToBinaryFile(gameData);
         }
     }
+    #endregion
 
+    #region || -------- Loading -------- ||
+
+    public AllGameData SelectLoadingType()
+    {
+        if (isSavingToJson)
+        {
+            AllGameData gameData = LoadGameDataFromJsonFile(); 
+            return gameData;
+        }
+        else
+        {
+            AllGameData gameData = LoadGameDataFromBinaryFile();
+            return gameData;
+        }
+    }
+
+    public void LoadGame()
+    {
+        // Player Data
+        SetPlayerData(SelectLoadingType().playerData);
+
+        // EnvironmentData
+        // setEnvironmentData
+    }
+
+    private void SetPlayerData(PlayerData playerData)
+    {
+        // In futuro si aggiungeranno anche le stats e l'inventario
+        Vector3 loadedPosition;
+        loadedPosition.x = playerData.playerPositionAndRotation[0];
+        loadedPosition.y = playerData.playerPositionAndRotation[1];
+        loadedPosition.z = playerData.playerPositionAndRotation[2];
+
+        PlayerState.Instance.playerBody.transform.position = loadedPosition;
+
+        Vector3 loadedRotation;
+        loadedRotation.x = playerData.playerPositionAndRotation[3];
+        loadedRotation.y = playerData.playerPositionAndRotation[4];
+        loadedRotation.z = playerData.playerPositionAndRotation[5];
+
+        PlayerState.Instance.playerBody.transform.rotation = Quaternion.Euler(loadedRotation);
+    }
+
+    public void StartLoadedGame()
+    {
+        SceneManager.LoadScene("Scene Canvas - Pierfabio");
+
+        StartCoroutine(DelayLoading());
+    }
+
+    private IEnumerator DelayLoading()
+    {
+        yield return new WaitForSeconds(1f);
+
+        LoadGame();
+    }
+
+
+    #endregion
 
     #endregion
 
@@ -76,33 +152,69 @@ public class SaveManager : MonoBehaviour
     {
         BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + "/save_game.bin";
-        FileStream stream = new FileStream(path, FileMode.Create);
+
+        FileStream stream = new FileStream(binaryPath, FileMode.Create);
 
         formatter.Serialize(stream, gameData);
         stream.Close();
 
-        print("Data saved to" + Application.persistentDataPath + "/save_game.bin");
+        print("Data saved to" + binaryPath);
     }
 
     public AllGameData LoadGameDataFromBinaryFile()
     {
-        string path = Application.persistentDataPath + "/save_game.bin";
+        
 
-        if (File.Exists(path))
+        if (File.Exists(binaryPath))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = new FileStream(binaryPath, FileMode.Open);
 
             AllGameData data = formatter.Deserialize(stream) as AllGameData;
             stream.Close();
 
+            print("Data loaded from" + binaryPath);
+
             return data;
+
+            Time.timeScale = 1f;
         }
         else
         {
             return null;
         }
+    }
+
+    #endregion
+
+    #region || -------- To Json Section -------- ||
+
+    public void SaveGameDataToJsonFile(AllGameData gameData)
+    {
+        string json = JsonUtility.ToJson(gameData);
+
+        string encrypted = EncryptionDecryption(json);
+
+        using (StreamWriter writer = new StreamWriter(jsonPathProject))
+        {
+            writer.Write(encrypted);
+            print("Saved Game to Json file at :" + jsonPathProject);
+        };
+    }
+
+    public AllGameData LoadGameDataFromJsonFile()
+    {
+       using (StreamReader reader = new StreamReader(jsonPathProject))
+        {
+            string json = reader.ReadToEnd();
+
+            string decrypted = EncryptionDecryption(json);
+
+            AllGameData data = JsonUtility.FromJson<AllGameData>(decrypted);
+            return data;
+
+            Time.timeScale = 1f;
+        };
     }
 
     #endregion
@@ -149,4 +261,23 @@ public class SaveManager : MonoBehaviour
 
 
     #endregion
+
+    #region || -------- Encryption -------- ||
+
+    public string EncryptionDecryption(string jsonString)
+    {
+        string keyword = "1234567";
+
+        string result = "";
+
+        for (int i = 0; i < jsonString.Length; i++) {
+            result += (char)(jsonString[i] ^ keyword[i % keyword.Length]);
+        }
+
+        return result;
+    }
+
+
+    #endregion
+
 }
