@@ -4,19 +4,18 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour
 {
     public bool isPickable;
+    public string itemName;
 
-    void Update()
-    {
-        IfPickedUp();
+    public string GetItemName() {
+        return itemName;
     }
+
     public void IfPickedUp() {
         if (Input.GetKeyDown(KeyCode.Mouse1) && isPickable) {
-
             if (!InventorySystem.Instance.isFull) {
-
-            Destroy(gameObject);
-            }
-            else {
+                InventorySystem.Instance.AddToInventory(itemName);
+                Destroy(gameObject);
+            } else {
                 Debug.Log("Inventory full");
             }
         }

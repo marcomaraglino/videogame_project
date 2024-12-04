@@ -23,6 +23,12 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
 
     private bool canMove = true;
 
+    public bool GetCanMove() {
+        return canMove;
+    }
+    public void SetCanMove(bool canMove) {
+        this.canMove = canMove;
+    }
     void Start()
     {
         characterController = GetComponent<CharacterController>();

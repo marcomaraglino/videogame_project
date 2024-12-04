@@ -45,6 +45,8 @@ public class SelectionManager : MonoBehaviour
                 hand.gameObject.SetActive(true);
                 pointer.gameObject.SetActive(false);
 
+                selectionTransform.GetComponent<InteractableObject>().IfPickedUp();
+
                 Vector3 screenPosition = Camera.main.WorldToScreenPoint(hit.point);
 
             // Movimento fluido con SmoothDamp
