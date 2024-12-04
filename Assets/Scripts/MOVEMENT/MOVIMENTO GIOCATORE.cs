@@ -16,13 +16,24 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
     public float defaultHeight = 2f;
     public float crouchHeight = 1f;
     public float crouchSpeed = 3f;
-
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
     private CharacterController characterController;
-
     private bool canMove = true;
     private bool isInWater = false;
+    public PlayerState playerStateInstance;
+
+    IEnumerator decreaseHealthInWater() {
+        yield return new WaitForSeconds(8);
+        while (isInWater) {
+            yield return new WaitForSeconds(1);
+            playerStateInstance.currentHealth -= 1;
+        }
+    }
+
+    public bool IsInWater() {
+        return isInWater;
+    }
 
     private bool walking;
 
@@ -46,6 +57,7 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("WaterLayer")){
             gravity = 9f;
             isInWater = true;
+            StartCoroutine(decreaseHealthInWater());
             // Optionally, you can set the player's height or other properties for swimming
         }
     }
