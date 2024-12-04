@@ -4,12 +4,13 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class MOVIMENTGIOCATORE : MonoBehaviour
-{
+{   
+    
     public Camera playerCamera;
-    public float walkSpeed = 6f;
+    public float walkSpeed = 10f;
     public float runSpeed = 12f;
     public float jumpPower = 7f;
-    public float gravity = 10f;
+    public float gravity = 9f;
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
     public float defaultHeight = 2f;
@@ -25,6 +26,7 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        characterController.height = defaultHeight;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -56,16 +58,16 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R) && canMove)
         {
-            characterController.height = crouchHeight;
-            walkSpeed = crouchSpeed;
-            runSpeed = crouchSpeed;
+           characterController.height = crouchHeight;
+           walkSpeed = crouchSpeed;
+           runSpeed = crouchSpeed;
 
         }
         else
         {
-            characterController.height = defaultHeight;
-            walkSpeed = 6f;
-            runSpeed = 12f;
+           characterController.height = defaultHeight;
+           walkSpeed = 10f;
+           runSpeed = 12f;
         }
 
         characterController.Move(moveDirection * Time.deltaTime);
