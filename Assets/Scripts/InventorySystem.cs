@@ -30,8 +30,12 @@ public class InventorySystem : MonoBehaviour
     
     private CanvasGroup alertCanvasGroup;
     public float fadeDuration = 0.5f;
- 
- 
+    public MOVIMENTGIOCATORE playerMovement; // Reference to the MOVIMENTGIOCATORE instance
+
+
+    // Add this line if it doesn't exist
+    public GameObject ItemInfoUI; // Reference to the UI GameObject for item info
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -71,6 +75,9 @@ public class InventorySystem : MonoBehaviour
 		    Debug.Log("i is pressed");
             inventoryScreenUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            playerMovement.SetCanMove(false);
+
             PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
             ppVolume.enabled = true;
             isOpen = true;
@@ -78,6 +85,10 @@ public class InventorySystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.I) && isOpen)
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            playerMovement.SetCanMove(true);
+
             PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
             ppVolume.enabled = false;
             inventoryScreenUI.SetActive(false);
