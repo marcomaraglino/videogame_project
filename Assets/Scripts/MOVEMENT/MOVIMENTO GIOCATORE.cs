@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class MOVIMENTGIOCATORE : MonoBehaviour
 {   
-    
+    public Animator playerAnim;
     public Camera playerCamera;
     public float walkSpeed = 10f;
     public float runSpeed = 12f;
@@ -24,6 +24,8 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
     private bool canMove = true;
     private bool isInWater = false;
 
+    private bool walking;
+
     public bool GetCanMove() {
         return canMove;
     }
@@ -36,6 +38,7 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
         characterController.height = defaultHeight;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        playerAnim = GetComponent<Animator>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -82,6 +85,12 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
             moveDirection.y = movementDirectionY;
         }
 
+        if (characterController.isGrounded && walking)
+        {
+            playerAnim.SetTrigger("walk");
+            playerAnim.ResetTrigger("idle");
+        }
+
         if (!characterController.isGrounded)
         {
             moveDirection.y -= gravity * Time.deltaTime;
@@ -109,6 +118,24 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        }
+
+        if(Input.GetKeyDown(KeyCode.W)){
+			playerAnim.SetTrigger("walk");
+			playerAnim.ResetTrigger("idle");
+			walking=true;
+			//steps1.SetActive(true);
+		}
+		if(Input.GetKeyUp(KeyCode.W)){
+			playerAnim.ResetTrigger("walk");
+			playerAnim.SetTrigger("idle");
+            walking=false;
+			//steps1.SetActive(false);
+		}
+        if(Input.GetKeyDown(KeyCode.Space)){
+            playerAnim.SetTrigger("jump");
+            playerAnim.ResetTrigger("idle");   
+           
         }
     }
 }
