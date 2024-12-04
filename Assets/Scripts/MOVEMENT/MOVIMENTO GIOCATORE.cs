@@ -10,7 +10,7 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
     public float walkSpeed = 10f;
     public float runSpeed = 12f;
     public float jumpPower = 7f;
-    public float gravity = 9f;
+    public float gravity = 20f;
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
     public float defaultHeight = 2f;
@@ -22,6 +22,7 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
     private CharacterController characterController;
 
     private bool canMove = true;
+    private bool isInWater = false;
 
     public bool GetCanMove() {
         return canMove;
@@ -37,6 +38,23 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
         Cursor.visible = false;
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("WaterLayer")){
+            gravity = 9f;
+            isInWater = true;
+            // Optionally, you can set the player's height or other properties for swimming
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("WaterLayer")){
+            gravity = 20f;
+            isInWater = false;
+        }
+    }
+
     void Update()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -48,9 +66,16 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
+        if (Input.GetButton("Jump") && canMove && (characterController.isGrounded || isInWater))
         {
-            moveDirection.y = jumpPower;
+            if (isInWater)
+            {
+                moveDirection.y = jumpPower;
+            }
+            else
+            {
+                moveDirection.y = jumpPower;
+            }
         }
         else
         {

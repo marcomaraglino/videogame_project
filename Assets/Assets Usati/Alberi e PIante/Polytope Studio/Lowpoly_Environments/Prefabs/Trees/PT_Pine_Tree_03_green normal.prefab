@@ -219,11 +219,11 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.25
+  - screenRelativeHeight: 0.40461877
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1394057832663195253}
-  - screenRelativeHeight: 0.125
+  - screenRelativeHeight: 0.23958464
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 8000319770140492376}
@@ -266,8 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae792ecd6e1384d62822dcd2a0def602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Pine Tree
   isPickable: 0
+  itemName: Pine Tree
 --- !u!1 &8169898343365794049
 GameObject:
   m_ObjectHideFlags: 0
