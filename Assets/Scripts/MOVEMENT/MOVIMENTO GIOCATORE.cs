@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
+
 
 [RequireComponent(typeof(CharacterController))]
 public class MOVIMENTGIOCATORE : MonoBehaviour
@@ -57,6 +59,10 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("WaterLayer")){
             gravity = 4f;
             isInWater = true;
+
+            PostProcessVolume ppVolume = GameObject.Find("WaterLayer").GetComponent<PostProcessVolume>();
+            ppVolume.enabled = true;
+
             StartCoroutine(decreaseHealthInWater());
             // Optionally, you can set the player's height or other properties for swimming
         }
@@ -67,6 +73,9 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("WaterLayer")){
             gravity = 20f;
             isInWater = false;
+
+            PostProcessVolume ppVolume = GameObject.Find("WaterLayer").GetComponent<PostProcessVolume>();
+            ppVolume.enabled = false;
         }
     }
 
