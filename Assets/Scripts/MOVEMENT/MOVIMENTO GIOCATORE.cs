@@ -55,7 +55,7 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("WaterLayer")){
-            gravity = 9f;
+            gravity = 4f;
             isInWater = true;
             StartCoroutine(decreaseHealthInWater());
             // Optionally, you can set the player's height or other properties for swimming
