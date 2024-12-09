@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
  
@@ -85,10 +86,10 @@ public class EquipSystem : MonoBehaviour
                 //changing color
                 foreach(Transform child in numberHolder.transform)
             {
-                child.transform.Find("Text").GetComponent<Text>().color = Color.grey;
+                child.transform.Find("Text").GetComponent<TextMeshProUGUI>().color = Color.grey;
             }
 
-            Text toBeChanged = numberHolder.transform.Find("number"+number).transform.Find("Text").GetComponent<Text>();
+            TextMeshProUGUI toBeChanged = numberHolder.transform.Find("number"+number).transform.Find("Text").GetComponent<TextMeshProUGUI>();
             toBeChanged.color = Color.white;
                 }else// we are trying to select the same slot 
                 {
@@ -103,7 +104,7 @@ public class EquipSystem : MonoBehaviour
                 //changing color
                 foreach(Transform child in numberHolder.transform)
             {
-                child.transform.Find("Text").GetComponent<Text>().color = Color.grey;
+                child.transform.Find("Text").GetComponent<TextMeshProUGUI>().color = Color.grey;
             }
                 }
             }
@@ -187,6 +188,6 @@ public class EquipSystem : MonoBehaviour
         else
         {
             return false;
-        }
-    }
+        }
+    }
 }
