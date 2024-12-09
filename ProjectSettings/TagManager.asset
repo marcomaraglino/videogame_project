@@ -7,7 +7,7 @@ TagManager:
   - Tre
   - Slot
   - Animal
-  - QuickSlot
+  - Waypoints
   layers:
   - Default
   - TransparentFX
