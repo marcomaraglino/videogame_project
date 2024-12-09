@@ -16,6 +16,7 @@ public class EquipSystem : MonoBehaviour
     public GameObject numberHolder;
     public int selectedNumber = -1;
     public GameObject selectedItem;
+    public GameObject toolHolder;
    
     private void Awake()
     {
