@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7878355496550340647}
   - component: {fileID: 3110564712836651883}
   - component: {fileID: -4201348744445047848}
-  - component: {fileID: -6571146313764515869}
+  - component: {fileID: 8252842902012970240}
   m_Layer: 5
-  m_Name: Stone 1
+  m_Name: melarossa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2c04f4986ebc72e48a8b0c3eb2e42db2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69917fef9fda63e44b5d057c1742196d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -103,7 +103,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &-6571146313764515869
+--- !u!114 &8252842902012970240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,14 +112,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5154181886179992068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bd6d12806d986b49817f6abc17b8c92, type: 3}
+  m_Script: {fileID: 11500000, guid: 22b760585e71ae2499caab3f37f7635f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isTrashable: 0
-  thisName: 
-  thisDescription: 
-  thisFunctionality: 
-  isConsumable: 0
+  thisName: fgdgfdh
+  thisDescription: fghfghgfh
+  thisFunctionality: hgffgh
+  isConsumable: 1
   healthEffect: 0
   caloriesEffect: 0
   hydrationEffect: 0
+  isEquippable: 0
+  isInsideQuickSlot: 0
+  isSelected: 0
