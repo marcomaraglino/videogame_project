@@ -9,6 +9,7 @@ TagManager:
   - Animal
   - Waypoints
   - QuickSlot
+  - Canvas
   layers:
   - Default
   - TransparentFX
