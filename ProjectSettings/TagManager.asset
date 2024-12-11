@@ -8,6 +8,7 @@ TagManager:
   - Slot
   - Animal
   - Waypoints
+  - QuickSlot
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Ground
   - WaterLayer
   - Tree
-  - 
+  - Equipable
   - 
   - 
   - 
