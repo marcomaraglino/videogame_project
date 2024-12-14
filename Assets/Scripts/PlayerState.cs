@@ -14,6 +14,9 @@ public class PlayerState : MonoBehaviour
     public GameObject player;
     public float currentHydration;
     public float maxHydration;
+    private Vector3 spawnPoint;
+    private bool isDead = false;
+    public GameObject deathScreenUI; // Assign this in Unity Inspector
     
     // Start is called before the first frame update
     void Awake()
@@ -30,9 +33,13 @@ public class PlayerState : MonoBehaviour
 
     void Start()
     {
+        spawnPoint = player.transform.position;
+
         currentHealth = maxHealth;
         currentCalories = maxCalories;
         currentHydration = maxHydration;
+        isDead = false;
+        deathScreenUI.SetActive(false);
 
         StartCoroutine(decreaseHydration());
     }
@@ -47,11 +54,65 @@ public class PlayerState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceTraveled += Vector3.Distance(player.transform.position, lastPosition);
-        lastPosition = player.transform.position;
-        if (distanceTraveled >= 5) {
-            distanceTraveled = 0;
-            currentCalories -= 1;
+        if (!isDead)
+        {
+            // Check for death condition
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+
+            distanceTraveled += Vector3.Distance(player.transform.position, lastPosition);
+            lastPosition = player.transform.position;
+            if (distanceTraveled >= 5) {
+                distanceTraveled = 0;
+                currentCalories -= 1;
+            }
         }
+    }
+
+    void Die()
+    {
+        isDead = true;
+        deathScreenUI.SetActive(true);
+        
+        // Disable player movement
+        if (player.GetComponent<MOVIMENTGIOCATORE>() != null)
+        {
+            player.GetComponent<MOVIMENTGIOCATORE>().enabled = false;
+        }
+        
+        // Show cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void Respawn()
+    {
+        isDead = false;
+        currentHealth = maxHealth;
+        currentCalories = maxCalories;
+        currentHydration = maxHydration;
+        InventorySystem.Instance.ClearInventory();
+        
+        // Enable player movement
+        
+        // Hide death screen
+        deathScreenUI.SetActive(false);
+        
+        // Reset player position (optional)
+        Debug.Log(player.transform.position);
+        player.transform.position = spawnPoint;
+        Debug.Log("Player position after teleport: " + player.transform.position);
+
+        if (player.GetComponent<MOVIMENTGIOCATORE>() != null)
+        {
+            player.GetComponent<MOVIMENTGIOCATORE>().enabled = true;
+        }
+ // Adjust coordinates as needed
+        
+        // Lock cursor again
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
