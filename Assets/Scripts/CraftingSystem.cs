@@ -36,7 +36,7 @@ public class CraftingSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AxeBLP = new ItemBlueprint("asciapietra", 1, "pietra", 3, "Stick", 2);
+        AxeBLP = new ItemBlueprint("ascialegno", 1, "pietra", 3, "Stick", 2);
         isOpen = false;
         toolsBtn = craftingScreenUI.transform.Find("ToolsButton").GetComponent<Button>();
         toolsBtn.onClick.AddListener(delegate { OpenToolsCategory();});
