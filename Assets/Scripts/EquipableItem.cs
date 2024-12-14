@@ -19,6 +19,9 @@ public class EquipableItem : MonoBehaviour
      {
         animator.SetTrigger("hit");
      }
+        else{
+            animator.ResetTrigger("hit");
+        }
 
     }
 }

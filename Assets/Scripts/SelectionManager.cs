@@ -25,6 +25,7 @@ public class SelectionManager : MonoBehaviour
     public Image pointer;
     public Vector3 handVelocity;
     
+    
     private void Start()
     {
         pointer.gameObject.SetActive(true);
