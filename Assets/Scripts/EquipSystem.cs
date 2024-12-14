@@ -38,6 +38,16 @@ public class EquipSystem : MonoBehaviour
         PopulateSlotList();
     }
     
+    public void ClearHotBar() {
+        foreach (GameObject slot in quickSlotsList)
+        {
+            if (slot.transform.childCount > 0)
+            {
+                Destroy(slot.transform.GetChild(0).gameObject);
+            }
+        }
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))

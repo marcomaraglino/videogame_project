@@ -174,6 +174,14 @@ public class InventorySystem : MonoBehaviour
 
     }
 
+    public void ClearInventory() {
+        foreach (GameObject slot in slotList) {
+            if (slot.transform.childCount > 0) {
+                DestroyImmediate(slot.transform.GetChild(0).gameObject);
+            }
+        }
+    }
+
     public void ReCalculateList() {
         itemList.Clear();
 
