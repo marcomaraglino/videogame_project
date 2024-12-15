@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     public AudioSource grassWalkSound;
     public AudioSource grassRunSound;
+    public AudioSource waterRunSound;
     public void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(this.gameObject);
@@ -27,6 +28,11 @@ public class SoundManager : MonoBehaviour
     {
         if (audioSource.isPlaying) return;
         audioSource.Play();
+
+        if (audioSource == grassWalkSound)
+        {
+            audioSource.pitch = Random.Range(0.8f, 1.1f);
+        }
     }
 
     // Update is called once per frame
