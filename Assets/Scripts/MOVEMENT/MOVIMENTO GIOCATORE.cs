@@ -158,5 +158,21 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
             playerAnim.ResetTrigger("idle");   
            
         }
+
+        // Check if the player is moving
+        if (canMove && (curSpeedX != 0 || curSpeedY != 0))
+        {
+            SoundManager.Instance.PlayMusic(SoundManager.Instance.grassWalkSound);
+            playerAnim.SetTrigger("walk");
+			playerAnim.ResetTrigger("idle");
+			walking=true;
+        }
+        else
+        {
+            SoundManager.Instance.grassWalkSound.Stop();
+            playerAnim.ResetTrigger("walk");
+			playerAnim.SetTrigger("idle");
+            walking=false;
+        }
     }
 }

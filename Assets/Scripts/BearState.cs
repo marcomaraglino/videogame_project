@@ -17,6 +17,7 @@ public class BearState : MonoBehaviour
             Animator animator = GetComponent<Animator>();
             if (animator != null)
             {
+                animator.SetBool("isAttacking", false);
                 animator.SetTrigger("Die"); // Replace "Die" with your actual trigger name
             }
 
