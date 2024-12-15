@@ -71,6 +71,12 @@ public class PlayerState : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage) {
+        currentHealth -= damage;
+
+        Debug.Log("Player is hurt");
+    }
+
     void Die()
     {
         isDead = true;
