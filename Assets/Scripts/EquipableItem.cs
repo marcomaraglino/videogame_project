@@ -19,6 +19,11 @@ public class EquipableItem : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && InventorySystem.Instance.isOpen == false && Time.time >= nextAttackTime) // Check attack rate
         {
+            GameObject selectedTree = SelectionManager.Instance.selectedTree;
+            if (selectedTree != null)
+            {
+                selectedTree.GetComponent<ChoppableTree>().GetHit();
+            }
             animator.SetTrigger("hit");
             nextAttackTime = Time.time + attackRate; // Set the next attack time
 
