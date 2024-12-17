@@ -4,6 +4,7 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour
 {
     public bool isPickable;
+    public bool isChoppable;
     public string itemName;
 
     public string GetItemName() {
@@ -18,6 +19,10 @@ public class InteractableObject : MonoBehaviour
             } else {
                 Debug.Log("Inventory full");
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isChoppable) {
+            Debug.Log("Chopping " + itemName);
         }
     }
 }

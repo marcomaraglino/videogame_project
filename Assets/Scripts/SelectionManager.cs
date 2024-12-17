@@ -24,7 +24,6 @@ public class SelectionManager : MonoBehaviour
     public Image hand;
     public Image pointer;
     public Vector3 handVelocity;
-    public GameObject selectedTree;
     public Vector3 screenPosition;
     
     
@@ -42,16 +41,6 @@ public class SelectionManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 10))
         {
             var selectionTransform = hit.transform;
-            InteractableObject choppableTree = selectionTransform.GetComponent<InteractableObject>();
-            if (selectionTransform.GetComponent<ChoppableTree>())
-            {
-                hand.gameObject.SetActive(true);
-                pointer.gameObject.SetActive(false);
-
-                selectionTransform.GetComponent<ChoppableTree>().IfPickedUp();
-
-                Vector3 screenPosition = Camera.main.WorldToScreenPoint(hit.point);
-            }
 
             if (selectionTransform.GetComponent<InteractableObject>())
             {
