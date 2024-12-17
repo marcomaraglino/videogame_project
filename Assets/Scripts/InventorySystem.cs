@@ -26,6 +26,8 @@ public class InventorySystem : MonoBehaviour
     public GameObject pickupAlert;
     public TextMeshProUGUI pickupName;
     public Image pickupImage;
+
+    public List<string> itemsPickedup;
     
  
  
@@ -61,20 +63,52 @@ public class InventorySystem : MonoBehaviour
     void Update()
     {
  
-        if (Input.GetKeyDown(KeyCode.I) && !isOpen)
+        if (MenuManager.Instance.isMenuOpen == true)
         {
+<<<<<<< Updated upstream
  
 		    Debug.Log("i is pressed");
             inventoryScreenUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             isOpen = true;
  
+=======
+
+>>>>>>> Stashed changes
         }
-        else if (Input.GetKeyDown(KeyCode.I) && isOpen)
+        else
         {
+<<<<<<< Updated upstream
             inventoryScreenUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             isOpen = false;
+=======
+            if (Input.GetKeyDown(KeyCode.I) && !isOpen)
+            {
+
+                Debug.Log("i is pressed");
+                inventoryScreenUI.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                playerMovement.SetCanMove(false);
+
+                PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
+                ppVolume.enabled = true;
+                isOpen = true;
+
+            }
+            else if (Input.GetKeyDown(KeyCode.I) && isOpen)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                playerMovement.SetCanMove(true);
+
+                PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
+                ppVolume.enabled = false;
+                inventoryScreenUI.SetActive(false);
+                isOpen = false;
+            }
+>>>>>>> Stashed changes
         }
     }
 

@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene Canvas - Pierfabio.unity
     guid: 1863b7912d9be9d4fae1cfd0f7b9bf49
   - enabled: 0
@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 56ed90955c7866b47826635be377d5a5
+<<<<<<< Updated upstream
+=======
+  - enabled: 1
+    path: Assets/Scenes/UI_Inventory.unity
+    guid: 630ec3e949b384c058bea179b00c1931
+  - enabled: 1
+    path: Assets/Scenes/ScenaDefinitiva - Pierfabio.unity
+    guid: f5cf9c16baa3cf049979a6b88993d0b9
+>>>>>>> Stashed changes
   m_configObjects: {}

@@ -7,7 +7,11 @@ public class AllGameData
 {
     public PlayerData playerData;
 
+<<<<<<< Updated upstream
     // public EnvironmentData environmentData;
+=======
+    public EnvironmentData environmentData;
+>>>>>>> Stashed changes
 
     // public ConstructionData constructionData;
 
