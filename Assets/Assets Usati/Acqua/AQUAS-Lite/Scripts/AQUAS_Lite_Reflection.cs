@@ -45,6 +45,10 @@ namespace AQUAS_Lite
             if (!cam)
                 return;
 
+            // Check if the camera is above the water surface
+            if (cam.transform.position.y < transform.position.y)
+                return; // Skip rendering if the camera is below the water
+
             // Safeguard from recursive reflections.        
             if (s_InsideRendering)
                 return;

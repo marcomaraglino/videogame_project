@@ -73,3 +73,6 @@ crashlytics-build.properties
 [Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/GUI_Parts/Gui_parts/UI_ELEMENTS.zip
 Assets/GUI_Parts/Gui_parts/UI_ELEMENTS.zip.meta
+
+# Ignore Visual Studio Code settings
+.vscode/settings.json
