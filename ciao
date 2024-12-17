@@ -1,0 +1,453 @@
+[33mcommit ba5529c6d79efd19d840de74823a0a81a5216f8f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mMain-Menu-&-In-Game-Menu[m[33m, [m[1;31morigin/Main-Menu-&-In-Game-Menu[m[33m)[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Tue Dec 17 20:08:12 2024 +0100
+
+    Resolved merfe conflitcs using preferred version
+
+[33mcommit d7e8d152f347efa45133de9e5a5ea616290da7d5[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Tue Dec 17 20:04:32 2024 +0100
+
+    update
+
+[33mcommit 004b8f5dc691986a3f2be764dfb22805b919faf2[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Tue Dec 17 19:59:58 2024 +0100
+
+    Update
+
+[33mcommit bfaf86e3c77d8e010cd2ed492b89f06a8b16ff3d[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Tue Dec 17 19:30:53 2024 +0100
+
+    Modifica menu adattamento inventario e scena nuova
+    
+    Penso dica tutto
+
+[33mcommit 6a41418a4bd1207f89c7ea35cb39a9468f9e7f61[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Mon Dec 9 19:04:25 2024 +0100
+
+    save menu dell'in game aggiornato col volume
+
+[33mcommit 55541f3b9cc82976ab269464db11929408d5f16c[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Mon Dec 9 17:57:45 2024 +0100
+
+    d
+
+[33mcommit a4c57b1458a7e9347b0267f1e1dcfeeb85032f52[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Mon Dec 9 17:17:54 2024 +0100
+
+    main menu
+
+[33mcommit 7eed6fd5067ddbc238a5e65f3ff017392bb1ca21[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Thu Dec 5 18:25:54 2024 +0100
+
+    Main Menu e InGameMenu finito
+    
+    Mancano solo alcune cose che dirò su whatsapp
+
+[33mcommit 588952ef4aa04adc54645c146b8a45979ea4a416[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Fri Nov 29 21:46:43 2024 +0100
+
+    Finito sistema di salvataggio e caricamento della partita
+    
+    Non si riesce a salvare però la rotazione di dove punti la camera, ma solo la posizione. In futuro implementare anche i vari file diversi di salvataggio. Rimuovere il formato binary e lasciare solo il json perché quest'ultimo permette appunto la creazione di più file.
+
+[33mcommit 95608471c04195bbdbb20ca0e615ad4a2e136c9b[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Wed Nov 27 21:29:18 2024 +0100
+
+    salvataggio partita
+    
+    impostata una modalità per salvare la partita, da aggiungere modo per caricarla e implementare successivamente statistiche ed inventario
+
+[33mcommit 917124b2b7a96713511778f3d54593a3f2b0b344[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Wed Nov 27 18:16:21 2024 +0100
+
+    Impostazioni volume complete
+    
+    Master volume, music volume, effects volume
+
+[33mcommit 1a603d74291a1bd7cfedd00e6d8d4c9a90e1084f[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Tue Nov 26 20:07:51 2024 +0100
+
+    Settings volume beta
+
+[33mcommit 924b82e1f34fc40ae45578e5c651cb01f8e74c64[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Tue Nov 26 12:17:52 2024 +0100
+
+    Aggiornamento menù di pausa
+    
+    Da aggiungere solo delle impostazioni e il modo per salvare la partita e caricare
+
+[33mcommit 13557fd2cd5db988a2b541a2bf129b466f1296c3[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Wed Nov 20 22:11:14 2024 +0100
+
+    progress nei menu
+    
+    molto importante ricordare di implementare successivamente il crafting system come condizione nell'if dell'ingame menu una volta creato
+
+[33mcommit 04dfc02f811e892b5bb5d19f9db4ae7520640a9e[m
+Author: Luketh127 <pierfabionotarnicola@gmail.com>
+Date:   Tue Nov 19 23:29:27 2024 +0100
+
+    Main Menu test
+    
+    Primo test col Main Menu, ricordare di cambiare nello script il Scene Canvas su cui stavo lavorando con quello principale alla fine
+
+[33mcommit 827ce9b8e4042f2983878b85788ef6ff096d3ab5[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Sun Nov 17 15:47:42 2024 +0100
+
+    Alert when picked item
+
+[33mcommit 476209094b83796d6325bd6e4498cd979208aed0[m
+Merge: 2e8822c c11c129
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Sun Nov 17 03:19:10 2024 +0100
+
+    Merge branch 'mappa'
+
+[33mcommit c11c1293d2eee705a1882f8fd535f9fa1f3a6c3e[m[33m ([m[1;31morigin/mappa[m[33m)[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Sun Nov 17 03:12:49 2024 +0100
+
+    add trees and fixed terrain
+
+[33mcommit 2e8822c36cae01cc028702f7221da47d7f699e81[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Sun Nov 17 03:03:30 2024 +0100
+
+    fix ui_elements
+
+[33mcommit a272c9363f1b67e5485318345d789ea5c12a9517[m
+Merge: 8a25aae 44ad88b
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Sun Nov 17 02:59:41 2024 +0100
+
+    Merge branch 'ui_elements'
+
+[33mcommit 44ad88be102dd5a32add00fe1c2a5a3fcd5f8198[m[33m ([m[1;31morigin/ui_elements[m[33m)[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Sun Nov 17 02:56:32 2024 +0100
+
+    ui-el
+
+[33mcommit 8a25aaed3d86b5439767960cc20fe6d566fec8f4[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Sun Nov 17 00:16:57 2024 +0100
+
+    scene canvas updated
+
+[33mcommit 3860d581215e2ec0c54c566332ff742546ff8c36[m
+Merge: 57d0901 f741ffb
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Fri Nov 15 14:48:45 2024 +0100
+
+    Merge branch 'Inventory_System'
+
+[33mcommit f741ffb68ef862850f3f66443fcfb4ad4457dc01[m[33m ([m[1;31morigin/Inventory_System[m[33m)[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Fri Nov 15 14:48:28 2024 +0100
+
+    Inventory System
+
+[33mcommit 57d09011c9ecf27526798e4e621f55d9225e27d8[m
+Merge: 4b776d9 02cf7d8
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Fri Nov 15 14:47:34 2024 +0100
+
+    Merge branch 'mappa'
+
+[33mcommit 02cf7d861f5f930c37d26557134413d7853599d0[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Nov 14 19:33:19 2024 +0100
+
+    other trees
+
+[33mcommit d9babf28223a5499a5649a731deabd483d7afd49[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Thu Nov 14 19:06:12 2024 +0100
+
+    Fix player movement on Inventory
+
+[33mcommit e2f77a44ad9502d1b549a9cd1acbf797fe867c25[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Thu Nov 14 18:46:55 2024 +0100
+
+    hot fix
+
+[33mcommit 989f6601599e289eef989a3cbc913634dffe5b65[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Thu Nov 14 18:42:34 2024 +0100
+
+    Game UI Inventory + Water fix
+
+[33mcommit 7bad28c1920a581583e96b155df69c2ebb70b028[m
+Merge: 6b03d62 5d15e8e
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Wed Nov 13 21:32:10 2024 +0100
+
+    Merge branch 'mappa' of https://github.com/marcomaraglino/videogame_project into mappa
+
+[33mcommit 6b03d623f78c6ecfa2cdacd5c72acd3d12d485f1[m
+Merge: d501877 7824f53
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Wed Nov 13 21:31:53 2024 +0100
+
+    Merge branch 'Picking_items' into mappa
+
+[33mcommit 5d15e8e9d421da92406128e92957077bfa2da85e[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Wed Nov 13 21:30:39 2024 +0100
+
+    snowy trees
+
+[33mcommit 9a2416f76de4413df99b32052cb482ecfeba1df8[m
+Merge: f18aca7 d501877
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Wed Nov 13 21:18:08 2024 +0100
+
+    Merge branch 'mappa' of https://github.com/marcomaraglino/videogame_project into mappa
+
+[33mcommit f18aca77147238fa10f7a78dd64709436361fcc5[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Wed Nov 13 21:15:28 2024 +0100
+
+    snowy trees
+
+[33mcommit d501877cfe65b0e52d93eb1ad2c2523166e98537[m
+Merge: 2b96b99 b57f682
+Author: marco <80206827+marcomaraglino@users.noreply.github.com>
+Date:   Wed Nov 13 21:10:48 2024 +0100
+
+    Merge pull request #8 from marcomaraglino/ui_elements
+    
+    UI elements
+
+[33mcommit b57f682b938954d64b459fe0c41b564fd20e6bef[m
+Merge: 67a709a 2b96b99
+Author: marco <80206827+marcomaraglino@users.noreply.github.com>
+Date:   Wed Nov 13 21:10:11 2024 +0100
+
+    Merge branch 'mappa' into ui_elements
+
+[33mcommit 7824f53b39e72603806104b908d74b8fdbc112d4[m[33m ([m[1;31morigin/Picking_items[m[33m, [m[1;32mPicking_items[m[33m)[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Wed Nov 13 21:04:24 2024 +0100
+
+    Rabbit Basic AI + Picking items
+
+[33mcommit 67a709a344eed2d660e2478ee6cd2184b89d50b8[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Wed Nov 13 19:40:22 2024 +0100
+
+    rabbit + snowy
+
+[33mcommit 4b776d9e58839ac5ec450e1693ffd06aad27cc08[m
+Author: marco <80206827+marcomaraglino@users.noreply.github.com>
+Date:   Fri Nov 8 16:08:17 2024 +0100
+
+    Create README.md
+
+[33mcommit 5843bedc1babc92a64e69c8d036db83eaa6f27bd[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Wed Nov 6 17:41:40 2024 +0100
+
+    mappa#
+
+[33mcommit 9601d187385987d2298737d6d87db8bfff66a5c4[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Wed Nov 6 17:41:24 2024 +0100
+
+    ui
+
+[33mcommit a26bf420444b30db5e8dc92a963e79fabebbcc08[m
+Merge: 0ec4a81 104f6c1
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Wed Nov 6 15:31:52 2024 +0100
+
+    Merge branch 'Water-Physics'
+
+[33mcommit 104f6c135331afffd7772749b71911fa00591ed9[m[33m ([m[1;31morigin/Water-Physics[m[33m)[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Fri Oct 25 17:49:52 2024 +0200
+
+    Water dive fix
+
+[33mcommit 0ec4a815a3184d18469007249e775a42bf7cf7bc[m
+Merge: a7e252f bfaeafd
+Author: marco <80206827+marcomaraglino@users.noreply.github.com>
+Date:   Fri Oct 25 16:44:44 2024 +0200
+
+    Merge pull request #7 from marcomaraglino/Water-Physics
+    
+    Added Water Physics
+
+[33mcommit bfaeafd809bcbc7345b421f3238e719c6266bf6f[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Fri Oct 25 16:42:00 2024 +0200
+
+    Added Water Physics
+
+[33mcommit a7e252f91030e63a0c7dbd44272ed64155ca3b63[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Fri Oct 25 15:58:30 2024 +0200
+
+    water effect
+
+[33mcommit 964bbb9ad9a833d76abbf7b3d110fdc06ca6cd85[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Fri Oct 25 15:43:44 2024 +0200
+
+    Water Surface Fix
+
+[33mcommit 381c31e770a1bf8c7d5e48d006f78a9753e21ac7[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Fri Oct 25 11:37:31 2024 +0200
+
+    mappa acqua
+
+[33mcommit 892662717cbbb08368f5931a56bda47f1c182ae4[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Fri Oct 25 01:44:32 2024 +0200
+
+    Added Jump, Palm render fix
+
+[33mcommit 23212aed5c942701b4bb271aa7e86817e4442a4f[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Fri Oct 25 00:16:09 2024 +0200
+
+    mappa aggiornata
+
+[33mcommit 90b34cc2d2c99f70991b4a8c6ae710605a789b4a[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 22:24:24 2024 +0200
+
+    palm
+
+[33mcommit 13f8a5edd27e671fbcb62798303824b42352fb20[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 13:10:14 2024 +0200
+
+    spiaggia
+
+[33mcommit d8c1b1a3c4ac4188b090d97959133918e588ea44[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 13:09:02 2024 +0200
+
+    spiaggia
+
+[33mcommit 37e6f925dcd053c5203cae7670f08748f6cf1f62[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 02:49:26 2024 +0200
+
+    lake
+
+[33mcommit da5c8da6e7935ef2ad5e3f7fdde8f26adf6a5df0[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 02:09:37 2024 +0200
+
+    mappa base
+
+[33mcommit fd3a201f300e9e4483f0eba91a15a3a179d8a6b7[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Thu Oct 24 01:43:04 2024 +0200
+
+    scene modified
+
+[33mcommit fdc30c49355f5513b18351a0343247681023523f[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Thu Oct 24 01:40:46 2024 +0200
+
+    tree collider
+
+[33mcommit 13037e911af93dabd0d62a98c41894f5360b6d6b[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 01:04:07 2024 +0200
+
+    fix codice
+
+[33mcommit e9e4345e9e311991af1964aabfba7d8e96cb4163[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 01:03:40 2024 +0200
+
+    fix codice
+
+[33mcommit 80cbbe99763dc7bdb14801f513551a42ade683ed[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 00:49:56 2024 +0200
+
+    terreno
+
+[33mcommit 059b3c60c8db7de2eff92c923946656f2075b9b6[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 00:35:44 2024 +0200
+
+    Update .gitignore
+
+[33mcommit 2b96b9978e18f847d4516e977210dbd39e7d22c2[m
+Author: marco <80206827+marcomaraglino@users.noreply.github.com>
+Date:   Thu Oct 24 00:33:20 2024 +0200
+
+    Update .gitignore
+
+[33mcommit 16fff857088acf64dce7ad72fe6ece45e655c796[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 00:16:02 2024 +0200
+
+    map add
+
+[33mcommit 0ed562ee8c68cc37692de0663a5ac85ec1158391[m
+Author: michele-03 <pumichi03@gmail.com>
+Date:   Thu Oct 24 00:06:48 2024 +0200
+
+    Update .gitignore
+
+[33mcommit 7dc4119f649d3c3816227a859c057ea0af3db4ce[m
+Author: marco <80206827+marcomaraglino@users.noreply.github.com>
+Date:   Wed Oct 23 23:08:29 2024 +0200
+
+    Update .gitignore
+
+[33mcommit 03b8a90511be63bed593bb38d5f9dfd25de68632[m
+Merge: 94a626d 7cb4114
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Wed Oct 23 17:46:52 2024 +0200
+
+    Merge branch 'player_movement'
+
+[33mcommit 94a626d6ff329a8880dcf8086cfde9d5cc969ca2[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Wed Oct 23 17:46:30 2024 +0200
+
+    Update .DS_Store
+
+[33mcommit 7cb4114e522c15bccb5d8ecf0b5abb94547edb21[m[33m ([m[1;31morigin/player_movement[m[33m)[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Wed Oct 23 16:14:41 2024 +0200
+
+    Player Movement script
+
+[33mcommit 183197064e2cb47b49bbc0f476287981a837a5df[m
+Author: marco <marcomaraglino5@gmail.com>
+Date:   Wed Oct 16 17:40:52 2024 +0200
+
+    Unity Setup
+
+[33mcommit e503c05c195c183d3dcb739ced7abcddb17cb346[m
+Author: marco <80206827+marcomaraglino@users.noreply.github.com>
+Date:   Wed Oct 16 17:29:33 2024 +0200
+
+    Create .gitignore
+    
+    gitignore template for Unity
