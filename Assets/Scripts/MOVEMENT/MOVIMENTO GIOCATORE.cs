@@ -60,6 +60,8 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
             gravity = 4f;
             isInWater = true;
 
+            SoundManager.Instance.PlayMusic(SoundManager.Instance.waterRunSound);
+
             PostProcessVolume ppVolume = GameObject.Find("WaterLayer").GetComponent<PostProcessVolume>();
             ppVolume.enabled = true;
 
@@ -73,6 +75,8 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("WaterLayer")){
             gravity = 20f;
             isInWater = false;
+
+            SoundManager.Instance.PlayMusic(SoundManager.Instance.waterRunSound);
 
             PostProcessVolume ppVolume = GameObject.Find("WaterLayer").GetComponent<PostProcessVolume>();
             ppVolume.enabled = false;
@@ -157,6 +161,22 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
             playerAnim.SetTrigger("jump");
             playerAnim.ResetTrigger("idle");   
            
+        }
+
+        // Check if the player is moving
+        if (canMove && (curSpeedX != 0 || curSpeedY != 0) && characterController.isGrounded && !isInWater)
+        {
+            SoundManager.Instance.PlayMusic(SoundManager.Instance.grassWalkSound);
+            playerAnim.SetTrigger("walk");
+			playerAnim.ResetTrigger("idle");
+			walking=true;
+        }
+        else
+        {
+            SoundManager.Instance.grassWalkSound.Stop();
+            playerAnim.ResetTrigger("walk");
+			playerAnim.SetTrigger("idle");
+            walking=false;
         }
     }
 }

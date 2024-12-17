@@ -24,51 +24,68 @@ public class SelectionManager : MonoBehaviour
     public Image hand;
     public Image pointer;
     public Vector3 handVelocity;
+    public GameObject selectedTree;
+    public Vector3 screenPosition;
     
     
     private void Start()
     {
         pointer.gameObject.SetActive(true);
     }
- 
+
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        
-        
+
+
         if (Physics.Raycast(ray, out hit, 10))
         {
             var selectionTransform = hit.transform;
- 
+            InteractableObject choppableTree = selectionTransform.GetComponent<InteractableObject>();
+            if (selectionTransform.GetComponent<ChoppableTree>())
+            {
+                hand.gameObject.SetActive(true);
+                pointer.gameObject.SetActive(false);
+
+                selectionTransform.GetComponent<ChoppableTree>().IfPickedUp();
+
+                Vector3 screenPosition = Camera.main.WorldToScreenPoint(hit.point);
+            }
+
             if (selectionTransform.GetComponent<InteractableObject>())
             {
                 hand.gameObject.SetActive(true);
                 pointer.gameObject.SetActive(false);
 
                 selectionTransform.GetComponent<InteractableObject>().IfPickedUp();
-
                 Vector3 screenPosition = Camera.main.WorldToScreenPoint(hit.point);
 
-            // Movimento fluido con SmoothDamp
-            hand.rectTransform.position = Vector3.SmoothDamp(
-                hand.rectTransform.position, 
-                screenPosition, 
-                ref handVelocity, 
-                0.1f // Tempo di smorzamento
-            );
-               
+
+                // Movimento fluido con SmoothDamp
+                hand.rectTransform.position = Vector3.SmoothDamp(
+                    hand.rectTransform.position,
+                    screenPosition,
+                    ref handVelocity,
+                    0.1f // Tempo di smorzamento
+                );
+
             }
-            else 
-            { 
+            else
+            {
                 hand.gameObject.SetActive(false);
                 pointer.gameObject.SetActive(true);
             }
- 
-        } else {
+        }
+
+
+
+
+        else
+        {
             hand.gameObject.SetActive(false);
             pointer.gameObject.SetActive(true);
-            
+
         }
         
     }
