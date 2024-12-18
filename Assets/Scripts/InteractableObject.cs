@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
+<<<<<<< HEAD
+=======
+    public bool isPickable;
+>>>>>>> parent of 0660f59 (simple tree cutting)
     public string itemName;
     public bool isPickable;
 
