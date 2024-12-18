@@ -24,6 +24,7 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
     private bool canMove = true;
     private bool isInWater = false;
     public PlayerState playerStateInstance;
+    private Vector3 lastPosition;
 
     IEnumerator decreaseHealthInWater() {
         yield return new WaitForSeconds(8);
@@ -160,19 +161,14 @@ public class MOVIMENTGIOCATORE : MonoBehaviour
         }
 
         // Check if the player is moving
-        if (canMove && (curSpeedX != 0 || curSpeedY != 0))
-        {
-            SoundManager.Instance.PlayMusic(SoundManager.Instance.grassWalkSound);
+        if (transform.position != lastPosition) {
             playerAnim.SetTrigger("walk");
-			playerAnim.ResetTrigger("idle");
-			walking=true;
-        }
-        else
-        {
-            SoundManager.Instance.grassWalkSound.Stop();
+            playerAnim.ResetTrigger("idle");
+            walking = true;
+        } else {
             playerAnim.ResetTrigger("walk");
-			playerAnim.SetTrigger("idle");
-            walking=false;
+            playerAnim.SetTrigger("idle");
+            walking = false;
         }
     }
 }

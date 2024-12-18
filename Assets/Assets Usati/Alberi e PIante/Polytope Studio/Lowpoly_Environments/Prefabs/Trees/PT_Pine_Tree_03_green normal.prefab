@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4240149612823846593}
   - component: {fileID: 2327944599613203944}
-  - component: {fileID: 8167633037027207166}
   - component: {fileID: 7233166487394549089}
   m_Layer: 0
   m_Name: tree_base
@@ -139,26 +138,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 14, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8167633037027207166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1644725454165103266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a36a89b42490542baf79e816dac8cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  canBeChopped: 0
-  treeMaxHealth: 10
-  treeHealth: 0
-  animator: {fileID: 0}
-  caloriesSpentChoppingWood: 20
-  isPickable: 0
-  itemName: 
 --- !u!65 &7233166487394549089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -276,9 +255,11 @@ GameObject:
   - component: {fileID: 1870679391148259636}
   - component: {fileID: 6654754570154149813}
   - component: {fileID: 5901084092854971558}
+  - component: {fileID: 5467868714286669645}
+  - component: {fileID: 4932161351695916481}
   m_Layer: 0
   m_Name: PT_Pine_Tree_03_green normal
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -364,7 +345,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPickable: 0
+  isChoppable: 0
   itemName: Pine Tree
+--- !u!136 &5467868714286669645
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117071349010126079}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.12
+  m_Height: 22.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4932161351695916481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117071349010126079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c291950f0dbc94441a6bb4fc463b5d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
 --- !u!1 &8169898343365794049
 GameObject:
   m_ObjectHideFlags: 0

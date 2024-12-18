@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 978621110346623394}
   - component: {fileID: 4523051499125241478}
-  - component: {fileID: 8719697915999781941}
   - component: {fileID: 3019803693741875336}
   m_Layer: 0
   m_Name: tree_base
@@ -139,26 +138,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 14, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8719697915999781941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3495270645952559978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a36a89b42490542baf79e816dac8cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInRange: 0
-  canBeChopped: 0
-  treeMaxHealth: 10
-  treeHealth: 0
-  animator: {fileID: 0}
-  caloriesSpentChoppingWood: 20
-  isPickable: 0
-  itemName: 
 --- !u!65 &3019803693741875336
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -276,9 +255,10 @@ GameObject:
   - component: {fileID: 2256188382494855856}
   - component: {fileID: 7673358931675413170}
   - component: {fileID: 5989183835243975207}
+  - component: {fileID: 1428182963875647528}
   m_Layer: 0
   m_Name: PT_Fruit_Tree_01_apples
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,7 +345,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPickable: 0
-  itemName: 
+  isChoppable: 1
+  itemName: Tree
+--- !u!114 &1428182963875647528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935278547815300987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c291950f0dbc94441a6bb4fc463b5d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
 --- !u!1 &7513603357302551873
 GameObject:
   m_ObjectHideFlags: 0

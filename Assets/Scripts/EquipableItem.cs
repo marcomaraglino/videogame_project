@@ -46,6 +46,7 @@ public class EquipableItem : MonoBehaviour
                     {
                         tree.TakeDamage(10); // Inflict damage (adjust damage value as needed)
                     }
+                    InventorySystem.Instance.AddToInventory("legnetto");
                 }
             }
         }
