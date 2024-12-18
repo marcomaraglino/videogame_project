@@ -10,13 +10,9 @@ public class MainMenu : MonoBehaviour
     public Button LoadGameBTN;
     public void NewGame()
     {
-<<<<<<< Updated upstream
-        SceneManager.LoadScene("Scene Canvas - Pierfabio");
+        SceneManager.LoadScene("ScenaDefinitiva - Pierfabio");
 
         Time.timeScale = 1f;
-=======
-        SceneManager.LoadScene("ScenaDefinitiva - Pierfabio");
->>>>>>> Stashed changes
     }
     public void ExitGame()
     {

@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    public static PlayerState Instance;
-
-    public GameObject playerBody;
-
-=======
     public static PlayerState Instance {get; set;}
     public float currentHealth;
     public float maxHealth;
@@ -26,7 +20,6 @@ public class PlayerState : MonoBehaviour
 
     
     // Start is called before the first frame update
->>>>>>> Stashed changes
     void Awake()
     {
         if (Instance == null)

@@ -65,24 +65,9 @@ public class InventorySystem : MonoBehaviour
  
         if (MenuManager.Instance.isMenuOpen == true)
         {
-<<<<<<< Updated upstream
- 
-		    Debug.Log("i is pressed");
-            inventoryScreenUI.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            isOpen = true;
- 
-=======
-
->>>>>>> Stashed changes
         }
         else
         {
-<<<<<<< Updated upstream
-            inventoryScreenUI.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            isOpen = false;
-=======
             if (Input.GetKeyDown(KeyCode.I) && !isOpen)
             {
 
@@ -108,7 +93,6 @@ public class InventorySystem : MonoBehaviour
                 inventoryScreenUI.SetActive(false);
                 isOpen = false;
             }
->>>>>>> Stashed changes
         }
     }
 
