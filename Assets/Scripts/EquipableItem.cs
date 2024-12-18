@@ -19,13 +19,10 @@ public class EquipableItem : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && InventorySystem.Instance.isOpen == false && Time.time >= nextAttackTime) // Check attack rate
         {
-            GameObject selectedTree = SelectionManager.Instance.selectedTree;
-            if (selectedTree != null)
-            {
-                selectedTree.GetComponent<ChoppableTree>().GetHit();
-            }
             animator.SetTrigger("hit");
             nextAttackTime = Time.time + attackRate; // Set the next attack time
+
+            //Choppable Tree
 
             // Check for nearby bears
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 7.1f); // Adjust radius as needed
@@ -38,6 +35,16 @@ public class EquipableItem : MonoBehaviour
                     if (bear != null)
                     {
                         bear.TakeDamage(10); // Inflict damage (adjust damage value as needed)
+                    }
+                }
+
+                if (hitCollider.CompareTag("Tree"))
+                {
+                    Debug.Log("Hit tree");
+                    TreeState tree = hitCollider.GetComponent<TreeState>();
+                    if (tree != null)
+                    {
+                        tree.TakeDamage(10); // Inflict damage (adjust damage value as needed)
                     }
                 }
             }
