@@ -6,6 +6,9 @@ public class InteractableObject : MonoBehaviour
 <<<<<<< HEAD
 =======
     public bool isPickable;
+<<<<<<< HEAD
+>>>>>>> parent of 0660f59 (simple tree cutting)
+=======
 >>>>>>> parent of 0660f59 (simple tree cutting)
     public string itemName;
     public bool isPickable;

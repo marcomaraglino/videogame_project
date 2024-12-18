@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/AllGameData.cs.meta
 guid: 10cc9efa2db3fc54c8c12430d26f1bb9
+========
+guid: a3a36a89b42490542baf79e816dac8cb
+>>>>>>>> parent of 0660f59 (simple tree cutting):Assets/Scripts/ChoppableTree.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

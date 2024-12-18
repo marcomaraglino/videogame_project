@@ -41,6 +41,19 @@ public class SelectionManager : MonoBehaviour
             var selectionTransform = hit.transform;
             InteractableObject choppableTree = selectionTransform.GetComponent<InteractableObject>();
             if (selectionTransform.GetComponent<ChoppableTree>())
+<<<<<<< HEAD
+=======
+            {
+                hand.gameObject.SetActive(true);
+                pointer.gameObject.SetActive(false);
+
+                selectionTransform.GetComponent<ChoppableTree>().IfPickedUp();
+
+                Vector3 screenPosition = Camera.main.WorldToScreenPoint(hit.point);
+            }
+
+            if (selectionTransform.GetComponent<InteractableObject>())
+>>>>>>> parent of 0660f59 (simple tree cutting)
             {
                 hand.gameObject.SetActive(true);
                 pointer.gameObject.SetActive(false);
