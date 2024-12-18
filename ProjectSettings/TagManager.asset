@@ -12,6 +12,7 @@ TagManager:
   - Canvas
   - Bear
   - Damage
+  - Tree
   layers:
   - Default
   - TransparentFX

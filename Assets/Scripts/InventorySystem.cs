@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.Rendering.PostProcessing;
  
 public class InventorySystem : MonoBehaviour
 {
@@ -27,15 +26,11 @@ public class InventorySystem : MonoBehaviour
     public GameObject pickupAlert;
     public TextMeshProUGUI pickupName;
     public Image pickupImage;
+
+    public List<string> itemsPickedup;
     
-    private CanvasGroup alertCanvasGroup;
-    public float fadeDuration = 0.5f;
-    public MOVIMENTGIOCATORE playerMovement; // Reference to the MOVIMENTGIOCATORE instance
-
-
-    // Add this line if it doesn't exist
-    public GameObject ItemInfoUI; // Reference to the UI GameObject for item info
-
+ 
+ 
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -54,7 +49,6 @@ public class InventorySystem : MonoBehaviour
         isOpen = false;
 
         PopulateSlotList();
-        alertCanvasGroup = pickupAlert.GetComponent<CanvasGroup>();
     }
 
     private void PopulateSlotList()
@@ -69,31 +63,52 @@ public class InventorySystem : MonoBehaviour
     void Update()
     {
  
-        if (Input.GetKeyDown(KeyCode.I) && !isOpen)
+        if (MenuManager.Instance.isMenuOpen == true)
         {
+<<<<<<< Updated upstream
  
 		    Debug.Log("i is pressed");
             inventoryScreenUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            playerMovement.SetCanMove(false);
-
-            PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
-            ppVolume.enabled = true;
             isOpen = true;
  
-        }
-        else if (Input.GetKeyDown(KeyCode.I) && isOpen)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            playerMovement.SetCanMove(true);
+=======
 
-            PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
-            ppVolume.enabled = false;
+>>>>>>> Stashed changes
+        }
+        else
+        {
+<<<<<<< Updated upstream
             inventoryScreenUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             isOpen = false;
+=======
+            if (Input.GetKeyDown(KeyCode.I) && !isOpen)
+            {
+
+                Debug.Log("i is pressed");
+                inventoryScreenUI.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                playerMovement.SetCanMove(false);
+
+                PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
+                ppVolume.enabled = true;
+                isOpen = true;
+
+            }
+            else if (Input.GetKeyDown(KeyCode.I) && isOpen)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                playerMovement.SetCanMove(true);
+
+                PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
+                ppVolume.enabled = false;
+                inventoryScreenUI.SetActive(false);
+                isOpen = false;
+            }
+>>>>>>> Stashed changes
         }
     }
 
@@ -102,24 +117,6 @@ public class InventorySystem : MonoBehaviour
         pickupName.text = itemName;
         pickupImage.sprite = itemImage;
         pickupAlert.SetActive(true);
-        alertCanvasGroup.alpha = 1;
-        StopAllCoroutines();
-        StartCoroutine(FadeAlert());
-    }
-
-    IEnumerator FadeAlert() {
-        yield return new WaitForSeconds(3f);
-
-        float elapsedTime = 0;
-        while (elapsedTime < fadeDuration) {
-            elapsedTime += Time.deltaTime;
-            float newAlpha = Mathf.Lerp(1, 0, elapsedTime / fadeDuration);
-            alertCanvasGroup.alpha = newAlpha;
-            yield return null;
-        }
-
-        alertCanvasGroup.alpha = 0;
-        pickupAlert.SetActive(false);
     }
 
     public void AddToInventory(string itemName) {
@@ -156,44 +153,5 @@ public class InventorySystem : MonoBehaviour
             }
         }
         return true;  
-    }
-
-    public void RemoveItem(string nameToRemove, int amountToRemove) {
-        int counter = amountToRemove;
-
-        for (var i = slotList.Count -1; i >= 0; i--) {
-            Debug.Log(i);
-            if (slotList[i].transform.childCount > 0) {
-                if (slotList[i].transform.GetChild(0).name == nameToRemove + "(Clone)" && counter != 0) {
-                    Debug.Log("Removing " + nameToRemove + " from inventory");
-                    DestroyImmediate(slotList[i].transform.GetChild(0).gameObject);
-                    counter--;
-                }
-            }
-        }
-
-    }
-
-    public void ClearInventory() {
-        foreach (GameObject slot in slotList) {
-            if (slot.transform.childCount > 0) {
-                DestroyImmediate(slot.transform.GetChild(0).gameObject);
-            }
-        }
-    }
-
-    public void ReCalculateList() {
-        itemList.Clear();
-
-        foreach (GameObject slot in slotList) {
-            if (slot.transform.childCount > 0) {
-                string name = slot.transform.GetChild(0).name; //Stone (Clone)
-                string str2 = "(Clone)";
-
-                string result = name.Replace(str2, "");
-
-                itemList.Add(result);
-            }
-        }
     }
 }
