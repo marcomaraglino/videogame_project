@@ -57,26 +57,6 @@ public class SaveManager : MonoBehaviour
 
         data.playerData = GetPlayerData();
 
-<<<<<<< Updated upstream
-        SelectSavingType(data, slotNumber);
-    }
-
-    private PlayerData GetPlayerData()
-    {
-        //da fare anche con le stats e l'inventario
-        float[] playerPosAndRot = new float[6];
-        playerPosAndRot[0] = PlayerState.Instance.playerBody.transform.position.x;
-        playerPosAndRot[1] = PlayerState.Instance.playerBody.transform.position.y;
-        playerPosAndRot[2] = PlayerState.Instance.playerBody.transform.position.z;
-
-        playerPosAndRot[3] = PlayerState.Instance.playerBody.transform.rotation.x;
-        playerPosAndRot[4] = PlayerState.Instance.playerBody.transform.rotation.y;
-        playerPosAndRot[5] = PlayerState.Instance.playerBody.transform.rotation.z;
-
-        return new PlayerData(playerPosAndRot);
-    }
-
-=======
         data.environmentData = GetEnvironmentData();
 
         SelectSavingType(data, slotNumber);
@@ -129,7 +109,6 @@ public class SaveManager : MonoBehaviour
 
         return temp.ToArray();
     }
->>>>>>> Stashed changes
 
     public void SelectSavingType(AllGameData gameData,int slotNumber)
     {
@@ -167,22 +146,13 @@ public class SaveManager : MonoBehaviour
         SetPlayerData(SelectLoadingType(slotNumber).playerData);
 
         // EnvironmentData
-<<<<<<< Updated upstream
-        // setEnvironmentData
-=======
         SetEnvironmentData(SelectLoadingType(slotNumber).environmentData);
->>>>>>> Stashed changes
 
         isLoading = false;
 
         DisableLoadingScreen();
     }
 
-<<<<<<< Updated upstream
-    private void SetPlayerData(PlayerData playerData)
-    {
-        // In futuro si aggiungeranno anche le stats e l'inventario
-=======
     private void SetEnvironmentData(EnvironmentData environmentData)
     {
         throw new NotImplementedException();
@@ -198,28 +168,20 @@ public class SaveManager : MonoBehaviour
 
         // Position
 
->>>>>>> Stashed changes
         Vector3 loadedPosition;
         loadedPosition.x = playerData.playerPositionAndRotation[0];
         loadedPosition.y = playerData.playerPositionAndRotation[1];
         loadedPosition.z = playerData.playerPositionAndRotation[2];
 
-<<<<<<< Updated upstream
-        PlayerState.Instance.playerBody.transform.position = loadedPosition;
-=======
         PlayerState.Instance.player.transform.position = loadedPosition;
 
         // Rotation
->>>>>>> Stashed changes
 
         Vector3 loadedRotation;
         loadedRotation.x = playerData.playerPositionAndRotation[3];
         loadedRotation.y = playerData.playerPositionAndRotation[4];
         loadedRotation.z = playerData.playerPositionAndRotation[5];
 
-<<<<<<< Updated upstream
-        PlayerState.Instance.playerBody.transform.rotation = Quaternion.Euler(loadedRotation);
-=======
         PlayerState.Instance.player.transform.rotation = Quaternion.Euler(loadedRotation);
 
         // Inventory
@@ -239,7 +201,6 @@ public class SaveManager : MonoBehaviour
         }
 
         isLoading = false;
->>>>>>> Stashed changes
     }
 
     public void StartLoadedGame(int slotNumber)

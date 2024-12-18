@@ -7,11 +7,8 @@ public class MenuManager : MonoBehaviour
     public static MenuManager Instance { get; set; }
 
     public GameObject menuCanvas;
-<<<<<<< Updated upstream
-=======
     public GameObject postProcessBlur;
     
->>>>>>> Stashed changes
 
     public GameObject postProcessVolume;
     public GameObject saveMenu;
@@ -36,8 +33,6 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M) && !isMenuOpen)
         {
-<<<<<<< Updated upstream
-=======
             if (InventorySystem.Instance.isOpen == true) 
             {
                 InventorySystem.Instance.inventoryScreenUI.SetActive(false);
@@ -47,7 +42,6 @@ public class MenuManager : MonoBehaviour
             EquipSystem.Instance.quickSlotsPanel.SetActive(false);
             EquipSystem.Instance.numberHolder.SetActive(false);
             postProcessBlur.SetActive(true);
->>>>>>> Stashed changes
             menuCanvas.SetActive(true);
             postProcessVolume.SetActive(true);
             menu.SetActive(true);
@@ -59,53 +53,28 @@ public class MenuManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-<<<<<<< Updated upstream
-            SelectionManager.Instance.DisableSelection();
-            SelectionManager.Instance.GetComponent<SelectionManager>().enabled = false;
-
-=======
             Time.timeScale = 0f;
 
 
->>>>>>> Stashed changes
         }else if (Input.GetKeyDown(KeyCode.M) && isMenuOpen)
         {
 
             saveMenu.SetActive(false);
             settingsMenu.SetActive(false);
-<<<<<<< Updated upstream
-           
-            postProcessVolume.SetActive(false);
-
-            Time.timeScale = 1f;
-
-=======
             menu.SetActive(true);
             EquipSystem.Instance.quickSlotsPanel.SetActive(true);
             EquipSystem.Instance.numberHolder.SetActive(true);
 
             postProcessBlur.SetActive(false);
->>>>>>> Stashed changes
             menuCanvas.SetActive(false);
 
             isMenuOpen = false;
 
-<<<<<<< Updated upstream
-            if (InventorySystem.Instance.isOpen == false)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            
-            SelectionManager.Instance.EnableSelection();
-            SelectionManager.Instance.GetComponent<SelectionManager>().enabled = true;
-=======
             Cursor.lockState = CursorLockMode.Locked;   
             Cursor.visible = false;
 
             Time.timeScale = 1f;
 
->>>>>>> Stashed changes
         }
     }
 }

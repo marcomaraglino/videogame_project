@@ -15,21 +15,12 @@ public class InteractableObject : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && isPickable) {
 
             if (!InventorySystem.Instance.isFull) {
-<<<<<<< Updated upstream
-
-
-            InventorySystem.Instance.AddToInventory(itemName);
-            Destroy(gameObject);
-            }
-            else {
-=======
                 InventorySystem.Instance.AddToInventory(itemName);
 
                 InventorySystem.Instance.itemsPickedup.Add(gameObject.name);
 
                 Destroy(gameObject);
             } else {
->>>>>>> Stashed changes
                 Debug.Log("Inventory full");
             }
         }
