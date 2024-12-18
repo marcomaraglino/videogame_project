@@ -37,6 +37,7 @@ public class SelectionManager : MonoBehaviour
                 choppableTree.canBeChopped= true;
                 selectedTree=choppableTree.gameObject;
             }
+            
             else
             {
                 if (selectedTree!=null)
