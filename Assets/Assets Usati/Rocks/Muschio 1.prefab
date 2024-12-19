@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 274.46857
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 13.45993
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 599.7003
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
       propertyPath: m_LocalRotation.w
@@ -38,15 +38,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -74,7 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: af2bfe00f5d9a39448aefb16aab19087, type: 2}
     - target: {fileID: 919132149155446097, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
       propertyPath: m_Name
-      value: rocciamuschio 1
+      value: Muschio 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
+      propertyPath: m_TagString
+      value: Stone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -85,6 +89,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9138151224361241143}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6811764235804527775}
   m_SourcePrefab: {fileID: 100100000, guid: 28e3707f4a278444d8dc7a6632a898ab, type: 3}
 --- !u!1 &6864683929200248719 stripped
 GameObject:
@@ -114,3 +121,16 @@ CapsuleCollider:
   m_Height: 4.7458053
   m_Direction: 2
   m_Center: {x: -0.28387713, y: 1.590838, z: 0.2767024}
+--- !u!114 &6811764235804527775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6864683929200248719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399a9a56df12544ba855375bee9312fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30

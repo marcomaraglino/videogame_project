@@ -114,7 +114,7 @@ public class CraftingSystem : MonoBehaviour
                 case "pietra":
                     stone_count++;
                     break;
-                case "Stick":
+                case "legnetto":
                     stick_count++;
                     break;
             }
@@ -124,7 +124,7 @@ public class CraftingSystem : MonoBehaviour
         AxeReq1.text = "3 Pietra [" + stone_count + "]";
         AxeReq2.text = "2 Legnetti [" + stick_count + "]";
 
-        if (stone_count >= 2) {
+        if (stone_count >= 3 && stick_count >= 2) {
             craftAxeBtn.gameObject.SetActive(true);
         } else {
             craftAxeBtn.gameObject.SetActive(false);
