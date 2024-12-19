@@ -48,6 +48,17 @@ public class EquipableItem : MonoBehaviour
                     }
                     InventorySystem.Instance.AddToInventory("legnetto");
                 }
+
+                if (hitCollider.CompareTag("Stone"))
+                {
+                    Debug.Log("Hit stone");
+                    StoneState tree = hitCollider.GetComponent<StoneState>();
+                    if (tree != null)
+                    {
+                        tree.TakeDamage(10); // Inflict damage (adjust damage value as needed)
+                    }
+                    InventorySystem.Instance.AddToInventory("pietra");
+                }
             }
         }
         else

@@ -43,15 +43,9 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
 
         itemInfoUI_itemName = itemInfoUI.transform.Find("ItemName")?.GetComponent<TextMeshProUGUI>();
-        itemInfoUI_itemDescription = itemInfoUI.transform.Find("ItemDescription")?.GetComponent<TextMeshProUGUI>();
-        itemInfoUI_itemFunctionality = itemInfoUI.transform.Find("ItemFunctionality")?.GetComponent<TextMeshProUGUI>();
 
         if (itemInfoUI_itemName == null)
             Debug.LogError("itemInfoUI_itemName is not found.");
-        if (itemInfoUI_itemDescription == null)
-            Debug.LogError("itemInfoUI_itemDescription is not found.");
-        if (itemInfoUI_itemFunctionality == null)
-            Debug.LogError("itemInfoUI_itemFunctionality is not found.");
     }
 
     void Update()
@@ -75,8 +69,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         itemInfoUI.SetActive(true);
         itemInfoUI_itemName.text = thisName;
-        itemInfoUI_itemDescription.text = thisDescription;
-        itemInfoUI_itemFunctionality.text = thisFunctionality;
     }
  
     // Triggered when the mouse exits the area of the item that has this script.
