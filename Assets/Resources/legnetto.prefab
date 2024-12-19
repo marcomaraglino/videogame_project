@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b760585e71ae2499caab3f37f7635f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrashable: 0
-  thisName: 
+  isTrashable: 1
+  thisName: LEGNETTO
   thisDescription: 
   thisFunctionality: 
   isConsumable: 0

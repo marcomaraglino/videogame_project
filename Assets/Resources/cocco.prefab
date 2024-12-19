@@ -116,9 +116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrashable: 0
-  thisName: fgdgfdh
-  thisDescription: fghfghgfh
-  thisFunctionality: hgffgh
+  thisName: COCCO
+  thisDescription: 
+  thisFunctionality: 
   isConsumable: 1
   healthEffect: 0
   caloriesEffect: 0
