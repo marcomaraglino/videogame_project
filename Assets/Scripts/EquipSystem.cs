@@ -163,7 +163,6 @@ public class EquipSystem : MonoBehaviour
             }
 
         }
-
        
 
     }
@@ -176,6 +175,11 @@ public class EquipSystem : MonoBehaviour
                 quickSlotsList.Add(child.gameObject);
             }
         }
+    }
+    //return the equipped item
+    public GameObject GetSelectedItem()
+    {
+        return selectedItem;
     }
  
     public void AddToQuickSlots(GameObject itemToEquip)

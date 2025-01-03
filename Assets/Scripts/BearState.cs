@@ -10,6 +10,16 @@ public class BearState : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+
+        if (health > 0) {
+            Animator animator = GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.SetBool("isAttacking", false);
+                animator.SetTrigger("Hurt"); // Replace "Die" with your actual trigger name
+            }
+        }
+
         if (health <= 0)
         {
             // Trigger death animation
