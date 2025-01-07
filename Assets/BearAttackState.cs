@@ -31,6 +31,7 @@ public class BearAttackState : StateMachineBehaviour
         if (attackTimer <= 0) {
             Attack();
             attackTimer = 1f / attackRate;
+            SoundManager.Instance.PlayMusic(SoundManager.Instance.bearAttackSound);
             
             
             
@@ -75,6 +76,7 @@ public class BearAttackState : StateMachineBehaviour
 
     public void Attack(){  
        PlayerState.Instance.TakeDamage(damageToInflict);
+       //play sound
        PostProcessVolume postProcessDamage = GameObject.FindWithTag("Damage").GetComponent<PostProcessVolume>();
        if(postProcessDamage.enabled == false)
        {
@@ -87,6 +89,7 @@ public class BearAttackState : StateMachineBehaviour
         // Inizializza il valore di dissolvenza
         float duration = 0.6f; // Durata della dissolvenza
         float elapsedTime = 0f;
+
 
         // Supponiamo che il PostProcessVolume abbia un effetto di vignettatura
         Vignette vignette = postProcessDamage.profile.GetSetting<Vignette>();

@@ -11,6 +11,9 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     public AudioSource grassWalkSound;
     public AudioSource grassRunSound;
+    public AudioSource cutTreeSound;
+    public AudioSource bearAttackSound;
+    public AudioSource waterWalkSound;
     public void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(this.gameObject);

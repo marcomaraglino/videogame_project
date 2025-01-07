@@ -40,6 +40,13 @@ public class EquipableItem : MonoBehaviour
 
                 if (hitCollider.CompareTag("Tree"))
                 {
+                    //check if the equipped item is an axe
+                    if (!EquipSystem.Instance.GetSelectedItem().name.StartsWith("ascialegno"))
+                    {
+                        return;
+                    }
+
+                    SoundManager.Instance.PlayMusic(SoundManager.Instance.cutTreeSound);
                     Debug.Log("Hit tree");
                     TreeState tree = hitCollider.GetComponent<TreeState>();
                     if (tree != null)
